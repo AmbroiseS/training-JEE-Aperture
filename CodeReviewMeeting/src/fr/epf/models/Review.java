@@ -17,7 +17,12 @@ public class Review {
 	private String reviewPromotion;
 	private String description;
 	
-	public Review(String reviewName, String reviewDateTime, String reviewPromotion, String description) {
+	public Review() {
+		super();
+	}
+	
+	public Review(String reviewName, String reviewDateTime, String reviewPromotion) {
+		super();
 		this.reviewName = reviewName;
 		this.reviewDateTime = reviewDateTime;
 		this.reviewPromotion = reviewPromotion;
@@ -62,7 +67,5 @@ public class Review {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	
-	
+		
 }

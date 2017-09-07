@@ -23,7 +23,7 @@ public class PromotionDAO {
 	}
 	
 	public List<Promotion> findAll() {
-		return entityManager.createQuery("SELECT * FROM promotion").getResultList();
+		return entityManager.createQuery("SELECT name FROM Promotion").getResultList();
 	}
 
 }

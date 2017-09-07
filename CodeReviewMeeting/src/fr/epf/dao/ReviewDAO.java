@@ -22,6 +22,6 @@ public class ReviewDAO {
 	}
 	
 	public List<Review> findAll() {
-		return entityManager.createQuery("SELECT * FROM review").getResultList();
+		return entityManager.createQuery("SELECT reviewName FROM Review").getResultList();
 	}
 }

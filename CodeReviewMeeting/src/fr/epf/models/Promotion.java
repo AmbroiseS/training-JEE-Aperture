@@ -13,7 +13,11 @@ public class Promotion {
 	private long id;
 	private String name;
 	
+	public Promotion() {
+		super();	
+	}
 	public Promotion(String name) {
+		super();
 		this.name = name;
 	}
 	
