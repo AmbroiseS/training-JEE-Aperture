@@ -16,11 +16,10 @@ public class Member {
 	private String birthdate;
 	
 	
-	public Member(String name, String email, String promotion, String birthdate) {
+	public Member(String name, String email, String promotion) {
 		this.name = name;
 		this.email = email;
 		this.promotion = promotion;
-		this.birthdate = birthdate;
 	}
 	
 	public String getName() {

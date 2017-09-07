@@ -32,7 +32,6 @@ public class AddMemberServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		Member member = parseMember(req);
-		req.getSession().setAttribute("user", member);
 		memberDAO.save(member);
 		resp.sendRedirect("/meetingProject/dashboard");
 	}
@@ -41,8 +40,7 @@ public class AddMemberServlet extends HttpServlet {
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
 		String promotion = req.getParameter("promotion");
-		String birthdate = req.getParameter("birthdate");
-		return new Member(name, email, promotion,birthdate);
+		return new Member(name, email, promotion);
 	}
 	
 	
