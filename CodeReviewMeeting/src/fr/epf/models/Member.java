@@ -1,11 +1,20 @@
 package fr.epf.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Member {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private String name;
 	private String email;
 	private String promotion;
 	private String birthdate;
+	
 	
 	public Member(String name, String email, String promotion, String birthdate) {
 		this.name = name;
