@@ -17,6 +17,7 @@ public class DashboardServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	}
 
