@@ -16,6 +16,9 @@ public class Member {
 	private String promotion;
 	private String birthdate;
 	
+	public Member(){
+		super();		
+	}
 	
 	public Member(String name, String email, String promotion) {
 		super();

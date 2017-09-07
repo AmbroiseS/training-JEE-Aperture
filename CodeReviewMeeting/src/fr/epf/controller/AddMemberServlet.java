@@ -32,7 +32,6 @@ public class AddMemberServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		Member member = parseMember(req);		
-		System.out.println(member.getName());
 		memberDAO.save(member);
 		resp.sendRedirect("/CodeReviewMeeting/dashboard");
 	}

@@ -72,7 +72,7 @@
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">4</div>
+                                    <div class="huge">${counterPromo}</div>
                                     <div class="huge-label">Promotions</div>
                                 </div>
                             </div>
@@ -94,7 +94,7 @@
                                     <i class="fa fa-user fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">46</div>
+                                    <div class="huge">${counterMember}</div>
                                     <div class="huge-label">Membres inscrits</div>
                                 </div>
                             </div>
@@ -116,7 +116,7 @@
                                     <i class="fa fa-calendar fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">3</div>
+                                    <div class="huge">${counterReview}</div>
                                     <div class="huge-label">Code reviews programmées</div>
                                 </div>
                             </div>
@@ -251,7 +251,7 @@
                                 </tr>
                                 <tr>
                                     <td>Code review 2</td>
-                                    <td>Promo Février</td>
+                                    <td>Promo Février</td> 
                                     <td class="text-right"><span class="text-muted small">05/03/2017</span></td>
                                 </tr>
                                 <tr>
