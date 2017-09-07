@@ -10,6 +10,7 @@ public class Member {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long Id;
 	private String name;
 	private String email;
 	private String promotion;
@@ -17,6 +18,7 @@ public class Member {
 	
 	
 	public Member(String name, String email, String promotion) {
+		super();
 		this.name = name;
 		this.email = email;
 		this.promotion = promotion;
