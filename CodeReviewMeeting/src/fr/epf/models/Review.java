@@ -21,7 +21,7 @@ public class Review {
 		super();
 	}
 	
-	public Review(String reviewName, String reviewDateTime, String reviewPromotion) {
+	public Review(String reviewName, String reviewDateTime, String reviewPromotion, String description) {
 		super();
 		this.reviewName = reviewName;
 		this.reviewDateTime = reviewDateTime;
