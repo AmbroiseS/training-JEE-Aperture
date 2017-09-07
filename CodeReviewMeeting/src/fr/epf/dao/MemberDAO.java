@@ -1,5 +1,6 @@
 package fr.epf.dao;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.ejb.Singleton;
@@ -21,8 +22,6 @@ public class MemberDAO {
 	}
 	
 	public List<Member> findAll() {
-		return entityManager.createQuery("SELECT * FROM member").getResultList();
+		return entityManager.createQuery("SELECT name FROM Member").getResultList();
 	}
-
-
 }
