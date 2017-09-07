@@ -1,13 +1,20 @@
 package fr.epf.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Promotion {
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long id;
 	private String name;
-	private int number;
 	
-	public Promotion(String name, int number) {
+	public Promotion(String name) {
 		this.name = name;
-		this.number = number;
 	}
 	
 	public String getName() {
@@ -16,12 +23,14 @@ public class Promotion {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getNumber() {
-		return number;
+	public Long getId() {
+		return id;
 	}
-	public void setNumber(int number) {
-		this.number = number;
+	
+	public void setId(Long id) {
+		this.id = id;
 	}
+	
 	
 
 }

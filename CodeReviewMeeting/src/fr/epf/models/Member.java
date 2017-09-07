@@ -10,7 +10,7 @@ public class Member {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private long Id;
+	private long id;
 	private String name;
 	private String email;
 	private String promotion;
@@ -41,5 +41,12 @@ public class Member {
 	public void setPromotion(String promotion) {
 		this.promotion = promotion;
 	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
 	
 }

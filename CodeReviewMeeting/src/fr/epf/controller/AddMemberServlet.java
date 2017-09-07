@@ -20,11 +20,6 @@ public class AddMemberServlet extends HttpServlet {
 	@Inject
 	private MemberDAO memberDAO;
 
-    public AddMemberServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/add_member.jsp").forward(request, response);
 	}

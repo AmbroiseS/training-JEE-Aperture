@@ -70,15 +70,15 @@
                                     <form action="" method="post" class="">
                                         <div class="form-group">
                                             <label for="name">Nom</label>
-                                            <input type="text" class="input-lg form-control" id="name" placeholder="Nom">
+                                            <input type="text" class="input-lg form-control" id="name" name="name" placeholder="Nom">
                                         </div>
                                         <div class="form-group">
                                             <label for="date">Date</label>
-                                            <input type="datetime" class="input-lg form-control" id="date" placeholder="Date de l'évènement">
+                                            <input type="datetime" class="input-lg form-control" id="date" name="date" placeholder="Date de l'évènement">
                                         </div>
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
-                                            <select class="input-lg form-control" id="promotion">
+                                            <select class="input-lg form-control" id="promotion" name="promotion">
                                                 <option>Février</option>
                                                 <option>Mars</option>
                                             </select>
