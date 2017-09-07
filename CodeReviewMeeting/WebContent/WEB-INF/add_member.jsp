@@ -81,10 +81,25 @@
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
                                             <select class="input-lg form-control" name="promotion" id="promotion">
-                                                <option>Février</option>
+                                                <option>Janvier</option>
+                                                <option>Fevrier</option>
                                                 <option>Mars</option>
+                                                <option>Avril</option>
+                                                <option>Mai</option>
+                                                <option>Juin</option>
+                                                <option>Juillet</option>
+                                                <option>Aout</option>
+                                                <option>Septembre</option>
+                                                <option>Octobre</option>
+                                                <option>Novembre</option>
+                                                <option>Decembre</option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="birthdate">Anniversaire</label>
+                                            <input class="input-lg form-control" type="date" name="birthdate" id="birthdate">
+                                        </div>
+                                        
 
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-lg btn-primary">Enregistrer</button>

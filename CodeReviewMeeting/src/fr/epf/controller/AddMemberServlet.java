@@ -35,7 +35,8 @@ public class AddMemberServlet extends HttpServlet {
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
 		String promotion = req.getParameter("promotion");
-		return new Member(name, email, promotion);
+		String birthdate = (String) req.getParameter("birthdate");
+		return new Member(name, email, promotion,birthdate);
 	}
 	
 	

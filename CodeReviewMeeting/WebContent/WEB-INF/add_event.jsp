@@ -74,14 +74,28 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="date">Date</label>
-                                            <input type="datetime" class="input-lg form-control" id="date" name="date" placeholder="Date de l'évènement">
+                                            <input type="date" class="input-lg form-control" id="date" name="date" placeholder="Date de l'évènement">
                                         </div>
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
                                             <select class="input-lg form-control" id="promotion" name="promotion">
-                                                <option>Février</option>
+                                            		<option>Janvier</option>
+                                                <option>Fevrier</option>
                                                 <option>Mars</option>
+                                                <option>Avril</option>
+                                                <option>Mai</option>
+                                                <option>Juin</option>
+                                                <option>Juillet</option>
+                                                <option>Aout</option>
+                                                <option>Septembre</option>
+                                                <option>Octobre</option>
+                                                <option>Novembre</option>
+                                                <option>Decembre</option>
                                             </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="description">Description</label>
+                                            <input type="description" class="input-lg form-control" id="description" name="description" placeholder="Description de l'évènement">
                                         </div>
 
                                         <div class="text-right">

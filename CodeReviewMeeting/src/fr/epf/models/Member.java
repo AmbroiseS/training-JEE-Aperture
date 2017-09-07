@@ -14,16 +14,18 @@ public class Member {
 	private String name;
 	private String email;
 	private String promotion;
+	private String birthdate;
 	
 	public Member(){
 		super();		
 	}
 	
-	public Member(String name, String email, String promotion) {
+	public Member(String name, String email, String promotion, String birthdate) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.promotion = promotion;
+		this.birthdate = birthdate;
 	}
 	
 	public String getName() {
@@ -38,11 +40,17 @@ public class Member {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
+	}
 	public String getPromotion() {
 		return promotion;
 	}
 	public void setPromotion(String promotion) {
 		this.promotion = promotion;
+	}
+	public String getBirthdate() {
+		return birthdate;
 	}
 	public Long getId() {
 		return id;

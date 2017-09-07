@@ -35,9 +35,10 @@ public class AddEventServlet extends HttpServlet {
 	
 	private Review parseReview(HttpServletRequest req) {
 		String name = req.getParameter("name");
-		String date = req.getParameter("date");
+		String date = (String) req.getParameter("date");
 		String promotion = req.getParameter("promotion");
-		return new Review(name, date, promotion);
+		String description = req.getParameter("description");
+		return new Review(name, date, promotion, description);
 	}
 
 }

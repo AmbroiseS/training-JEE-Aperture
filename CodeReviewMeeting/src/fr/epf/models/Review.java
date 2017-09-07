@@ -15,11 +15,13 @@ public class Review {
 	private String reviewName;
 	private String reviewDateTime; 
 	private String reviewPromotion;
+	private String description;
 	
-	public Review(String reviewName, String reviewDateTime, String reviewPromotion) {
+	public Review(String reviewName, String reviewDateTime, String reviewPromotion, String description) {
 		this.reviewName = reviewName;
 		this.reviewDateTime = reviewDateTime;
 		this.reviewPromotion = reviewPromotion;
+		this.description = description;
 	}
 	
 	public void setReviewName(String reviewName) {
@@ -34,6 +36,10 @@ public class Review {
 		this.reviewPromotion = reviewPromotion;
 	}
 	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 	public String getReviewName() {
 		return reviewName;
 	}
@@ -44,6 +50,10 @@ public class Review {
 	
 	public String getReviewPromotion() {
 		return reviewPromotion;
+	}
+	
+	public String getDescription() {
+		return description;
 	}
 	public Long getId() {
 		return id;
