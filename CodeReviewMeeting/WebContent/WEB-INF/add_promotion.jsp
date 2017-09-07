@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <html lang="fr">
 <head>
     <meta charset="utf-8">
@@ -12,10 +12,10 @@
     <title>When Is My Code Review?</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="/CodeReviewMeeting/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="/CodeReviewMeeting/css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -99,16 +99,16 @@
     <footer class="footer">
         <div class="container">
             <div class="row text-center">
-                <img src="../img/ebusiness.png" class="logo" alt=""> &bullet; 2017
+                <img src="/CodeReviewMeeting/img/ebusiness.png" class="logo" alt="">
             </div>
         </div>
     </footer>
 
     <!-- jQuery -->
-    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="/CodeReviewMeeting/js/jquery-3.1.1.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
 
 </body>
 
