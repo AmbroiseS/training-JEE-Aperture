@@ -5,6 +5,14 @@ public class Member {
 	private String name;
 	private String email;
 	private String promotion;
+	private String birthdate;
+	
+	public Member(String name, String email, String promotion, String birthdate) {
+		this.name = name;
+		this.email = email;
+		this.promotion = promotion;
+		this.birthdate = birthdate;
+	}
 	
 	public String getName() {
 		return name;
@@ -23,6 +31,14 @@ public class Member {
 	}
 	public void setPromotion(String promotion) {
 		this.promotion = promotion;
+	}
+	
+	public String getBirthdate() {
+		return birthdate;
+	}
+	
+	public void setBirthdate(String birthdate) {
+		this.birthdate = birthdate;
 	}
 	
 	

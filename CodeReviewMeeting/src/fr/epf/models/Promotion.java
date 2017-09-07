@@ -5,6 +5,10 @@ public class Promotion {
 	private String name;
 	private int number;
 	
+	public Promotion(String name, int number) {
+		this.name = name;
+		this.number = number;
+	}
 	
 	public String getName() {
 		return name;
