@@ -12,10 +12,10 @@
     <title>When Is My Code Review?</title>
 
     <!-- Bootstrap CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="/CodeReviewMeeting/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="/CodeReviewMeeting/css/style.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -34,7 +34,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">When Is My Code Review?</a>
+                <a class="navbar-brand" href="/CodeReviewMeeting/dashboard">When Is My Code Review?</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -44,11 +44,11 @@
                         <i class="fa fa-gear fa-fw"></i> Gérer les code reviews <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="add_promotion.html"><i class="fa fa-users fa-fw"></i> Ajouter une promotion</a>
+                        <li><a href="/CodeReviewMeeting/add_promotion"><i class="fa fa-users fa-fw"></i> Ajouter une promotion</a>
                         </li>
-                        <li><a href="add_member.html"><i class="fa fa-user fa-fw"></i> Ajouter un membre</a>
+                        <li><a href="/CodeReviewMeeting/add_member"><i class="fa fa-user fa-fw"></i> Ajouter un membre</a>
                         </li>
-                        <li><a href="add_event.html"><i class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a>
+                        <li><a href="/CodeReviewMeeting/add_event"><i class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a>
                         </li>
                     </ul>
                 </li>
@@ -77,7 +77,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="add_promotion.html">
+                        <a href="/CodeReviewMeeting/add_promotion">
                             <div class="panel-footer">
                                 <span class="pull-left">Ajouter une promotion</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="add_member.html">
+                        <a href="/CodeReviewMeeting/add_member">
                             <div class="panel-footer">
                                 <span class="pull-left">Ajouter un membre</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="add_event.html">
+                        <a href="/CodeReviewMeeting/add_event">
                             <div class="panel-footer">
                                 <span class="pull-left">Ajouter une code review</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -307,16 +307,16 @@
     <footer class="footer">
         <div class="container">
             <div class="row text-center">
-                <img src="../img/ebusiness.png" class="logo" alt=""> &bullet; 2017
+                <img src="/CodeReviewMeeting/img/ebusiness.png" class="logo" alt=""> 
             </div>
         </div>
     </footer>
 
     <!-- jQuery -->
-    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="/CodeReviewMeeting/jquery-3.1.1.min.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
 
 </body>
 

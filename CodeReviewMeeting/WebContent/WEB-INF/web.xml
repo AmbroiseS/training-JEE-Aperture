@@ -8,4 +8,4 @@
     <servlet-name>AddEventServlet</servlet-name>
     <url-pattern>/add_event</url-pattern>
   </servlet-mapping>
-  </web-app>
+</web-app>
