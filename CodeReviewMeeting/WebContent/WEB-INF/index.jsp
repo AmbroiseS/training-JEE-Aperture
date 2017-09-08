@@ -1,3 +1,5 @@
+<%@page import="fr.epf.models.Member"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
@@ -155,69 +157,22 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                               <tr>
-                                                   <td>Lortola</td>
-                                                   <td>lortola@e-biz.fr</td>
-                                                   <td>Février</td>
-                                                   <td  class="text-right">
-                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
-                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <td>Alebel</td>
-                                                   <td>alebel@e-biz.fr</td>
-                                                   <td>Avril</td>
-                                                   <td class="text-right">
-                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
-                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <td>Kbottero</td>
-                                                   <td>kbottero@e-biz.fr</td>
-                                                   <td>Mars</td>
-                                                   <td class="text-right">
-                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
-                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <td>rlarroque</td>
-                                                   <td>rlarroque@e-biz.fr</td>
-                                                   <td>Février</td>
-                                                   <td class="text-right">
-                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
-                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <td>hdelabatte</td>
-                                                   <td>hdelabatte@e-biz.fr</td>
-                                                   <td>Mars</td>
-                                                   <td class="text-right">
-                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
-                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <td>gnostrenoff</td>
-                                                   <td>gnostrenoff@e-biz.fr</td>
-                                                   <td>Mars</td>
-                                                   <td class="text-right">
-                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
-                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                                                   </td>
-                                               </tr>
-                                               <tr>
-                                                   <td>hbernardi</td>
-                                                   <td>hbernardi@e-biz.fr</td>
-                                                   <td>Avril</td>
-                                                   <td class="text-right">
-                                                       <a href="#" class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i> Modifier</a>
-                                                       <a href="#" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> Supprimer</a>
-                                                   </td>
-                                               </tr>
+                                               <%
+													ArrayList<Member> members = (ArrayList<Member>) request.getAttribute("listMembers");
+													for (Member member : members) {
+												%>
+												<tr>
+													<td><%=member.getName()%></td>
+													<td><%=member.getEmail()%></td>
+													<td><%=member.getPromotion()%></td>
+													<td class="text-right"><a href="#"
+														class="btn btn-sm btn-warning"><i class="fa fa-pencil"></i>
+															Modifier</a> <a href="#" class="btn btn-sm btn-danger"><i
+															class="fa fa-trash"></i> Supprimer</a></td>
+												</tr>
+												<%
+													}
+												%>
                                             </tbody>
                                         </table>
                                         <div class="text-center">
