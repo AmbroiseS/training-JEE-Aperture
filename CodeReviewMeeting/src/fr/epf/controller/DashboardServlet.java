@@ -13,11 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-import fr.epf.dao.MemberDAO;
-import fr.epf.dao.PromotionDAO;
-import fr.epf.dao.ReviewDAO;
-import fr.epf.models.Member;
-import fr.epf.models.Review;
+import fr.epf.dao.*;
+import fr.epf.models.*;
 
 @WebServlet("/dashboard")
 public class DashboardServlet extends HttpServlet {
@@ -37,11 +34,11 @@ public class DashboardServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		List members = memberDAO.findAll();		
-		List promos = promoDAO.findAll();
+		Promotion[] promotions = promoDAO.findAll();
 		Review[] reviews = reviewDAO.findAll();
 		
 		int membercount = members.size();
-		int promocount = promos.size();
+		int promocount = promotions.length;
 		int reviewcount = reviews.length;
 					
 		
@@ -49,6 +46,7 @@ public class DashboardServlet extends HttpServlet {
 		request.setAttribute("counterPromo", ""+ promocount);
 		request.setAttribute("counterReview", ""+ reviewcount);
 		request.setAttribute("reviews", reviews);
+		request.setAttribute("promotions", promotions);
 		
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	}
