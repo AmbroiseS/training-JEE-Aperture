@@ -212,7 +212,7 @@
                             </table>
                             </div>
                             <br/>
-                            <a href="#" class="btn btn-default btn-block">Programmer une code review</a>
+                            <a href="/CodeReviewMeeting/add_event" class="btn btn-default btn-block">Programmer une code review</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>
@@ -237,7 +237,7 @@
                                 
                             </div>
                             <!-- /.list-group -->
-                            <a href="#" class="btn btn-default btn-block">Créer une nouvelle promotion</a>
+                            <a href="/CodeReviewMeeting/add_promotion" class="btn btn-default btn-block">Créer une nouvelle promotion</a>
                         </div>
                         <!-- /.panel-body -->
                     </div>

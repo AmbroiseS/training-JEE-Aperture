@@ -30,7 +30,7 @@ public class AddEventServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		Review review = parseReview(req);		
 		reviewDAO.save(review);
-		resp.sendRedirect("index");
+		resp.sendRedirect("dashboard");
 	}
 	
 	private Review parseReview(HttpServletRequest req) {

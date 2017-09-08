@@ -28,7 +28,7 @@ public class AddMemberServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		Member member = parseMember(req);		
 		memberDAO.save(member);
-		resp.sendRedirect("index");
+		resp.sendRedirect("dashboard");
 	}
 	
 	private Member parseMember(HttpServletRequest req) {

@@ -32,7 +32,6 @@ public class MemberDAO {
 	public ArrayList<Member> findAll() {
 		List<Object[]> list = entityManager.createQuery("SELECT id, name,email, promotion, birthdate FROM Member")
 				.getResultList();
-		System.out.println(list);
 		return listToArray(list);
 	}
 	
