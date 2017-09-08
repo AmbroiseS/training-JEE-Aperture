@@ -227,21 +227,14 @@
                         
                             <div class="list-group panel-scroll">
                                 <a href="#" class="list-group-item">
+                                <c:forEach var="promotion" items="${promotions}"> 
                                 <a href="#" class="list-group-item">
-                                    <i class="fa fa-users fa-fw"></i> Promo Février
+                                    <i class="fa fa-users fa-fw"></i><c:out value=" ${promotion.getName()}" />
                                     <span class="pull-right text-muted small"><em>8 membres</em>
                                     </span>
                                 </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-users fa-fw"></i> Promo Mars
-                                    <span class="pull-right text-muted small"><em>6 membres</em>
-                                    </span>
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    <i class="fa fa-users fa-fw"></i> Promo Avril
-                                    <span class="pull-right text-muted small"><em>0 membre</em>
-                                    </span>
-                                </a>
+                                </c:forEach>
+                                
                             </div>
                             <!-- /.list-group -->
                             <a href="#" class="btn btn-default btn-block">Créer une nouvelle promotion</a>

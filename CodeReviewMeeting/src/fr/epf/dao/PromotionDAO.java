@@ -25,14 +25,14 @@ public class PromotionDAO {
 	
 	public Promotion[] findAll() {
 		//TO DO GET TODAY DATE
-				List<Object[]> promotionsList = entityManager.createQuery("SELECT reviewName, reviewDateTime, reviewPromotion FROM Review WHERE reviewDateTime >'2017-09-25' ").getResultList();
+				List<Object[]> promotionsList = entityManager.createQuery("SELECT id, name FROM Promotion").getResultList();
 				int promotionCount = promotionsList.size();
 					Promotion[] promotions= new Promotion[promotionCount];
 					int i= 0;
 					
 					for(Object[] promotion : promotionsList){
 						Promotion promo = new Promotion();
-						promo.setName(promotion[0].toString());					
+						promo.setName(promotion[1].toString());					
 						promotions[i] = promo;
 						i++;
 					}
