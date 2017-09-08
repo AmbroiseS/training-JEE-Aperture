@@ -38,18 +38,17 @@ public class DashboardServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
 		List members = memberDAO.findAll();		
 		List promos = promoDAO.findAll();
-		List<Object[]> reviews = reviewDAO.findAll();
+		Review[] reviews = reviewDAO.findAll();
 		
 		int membercount = members.size();
 		int promocount = promos.size();
-		int reviewcount = reviews.size();
-		
-		Review[] reviewsArray= prepareReviewForRequest(reviews, reviewcount);		
+		int reviewcount = reviews.length;
+					
 		
 		request.setAttribute("counterMember", ""+ membercount);
 		request.setAttribute("counterPromo", ""+ promocount);
 		request.setAttribute("counterReview", ""+ reviewcount);
-		request.setAttribute("reviews", reviewsArray);
+		request.setAttribute("reviews", reviews);
 		
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	}
@@ -59,18 +58,5 @@ public class DashboardServlet extends HttpServlet {
 		doGet(request, response);
 	}
 
-	private Review[] prepareReviewForRequest(List<Object[]> reviews, int reviewcount) {
-		Review[] reviewsArray= new Review[reviewcount];
-		int i= 0;
-		
-		for(Object[] review : reviews){
-			Review rw = new Review();
-			rw.setReviewName(review[0].toString());
-			rw.setReviewPromotion(review[2].toString());
-			rw.setReviewDateTime(review[1].toString());
-			reviewsArray[i] = rw;
-			i++;
-		}
-		return reviewsArray;
-	}
+	
 }

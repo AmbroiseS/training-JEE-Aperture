@@ -21,6 +21,14 @@ public class MemberDAO {
 		return entityManager.find(Member.class, id);
 	}
 	
+	public void editOne(Long id) {
+		
+	}
+	
+	public void deleteOne(Long id) {
+		
+	}
+	
 	public List<Member> findAll() {
 		return entityManager.createQuery("SELECT name FROM Member").getResultList();
 	}
