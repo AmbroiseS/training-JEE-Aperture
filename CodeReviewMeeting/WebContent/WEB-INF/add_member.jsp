@@ -96,7 +96,7 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label for="birthdate">Anniversaire</label>
+                                            <label for="birthdate">Date de Naissance</label>
                                             <input class="input-lg form-control" type="date" name="birthdate" id="birthdate">
                                         </div>
                                         
