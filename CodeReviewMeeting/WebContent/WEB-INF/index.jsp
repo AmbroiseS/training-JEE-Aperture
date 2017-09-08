@@ -239,11 +239,12 @@
                 </div>
                 <!-- /.col-lg-8 -->
                 <div class="col-lg-4">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default ">
                         <div class="panel-heading">
                             <i class="fa fa-calendar fa-fw"></i> Codes reviews programmées
                         </div>
                         <div class="panel-body">
+                        <div class="panel-scroll">
                             <table class="table table-hover table-striped">
                   
                           <c:forEach var="review" items="${reviews}">    
@@ -252,24 +253,10 @@
                                     <td><c:out value="${review.getReviewPromotion()}"/></td>
                                     <td class="text-right"><span class="text-muted small"><c:out value="${review.getReviewDateTime()}"/></span></td>
                                 </tr>
-                            </c:forEach>
-                            
-                                <tr>
-                                    <td>Code review 1</td>
-                                    <td>Promo Février</td>
-                                    <td class="text-right"><span class="text-muted small">24/02/2017</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Code review 2</td>
-                                    <td>Promo Février</td> 
-                                    <td class="text-right"><span class="text-muted small">05/03/2017</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Code review 1</td>
-                                    <td>Promo Mars</td>
-                                    <td class="text-right"><span class="text-muted small">10/03/2017</span></td>
-                                </tr>
+                            </c:forEach>                                                                                         
                             </table>
+                            </div>
+                            <br/>
                             <a href="#" class="btn btn-default btn-block">Programmer une code review</a>
                         </div>
                         <!-- /.panel-body -->
@@ -282,7 +269,9 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <div class="list-group">
+                        
+                            <div class="list-group panel-scroll">
+                                <a href="#" class="list-group-item">
                                 <a href="#" class="list-group-item">
                                     <i class="fa fa-users fa-fw"></i> Promo Février
                                     <span class="pull-right text-muted small"><em>8 membres</em>

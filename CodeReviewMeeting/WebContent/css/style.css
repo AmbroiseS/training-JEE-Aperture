@@ -47,6 +47,13 @@ body {
     body .panel-yellow .panel-heading {
       color: white;
       background-color: #E5AD1A; }
+body .panel-scroll{
+	overflow-y: auto;
+	height: auto;
+	max-height:300px;
+
+      
+      }
   body .footer {
     bottom: 0;
     width: 100%;
