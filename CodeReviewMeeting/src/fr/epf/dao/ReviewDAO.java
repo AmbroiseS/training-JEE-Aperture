@@ -21,7 +21,7 @@ public class ReviewDAO {
 		return entityManager.find(Review.class, id);
 	}
 	
-	public List<Review> findAll() {
-		return entityManager.createQuery("SELECT reviewName FROM Review").getResultList();
+	public List<Object[]> findAll() {
+		return entityManager.createQuery("SELECT reviewName, reviewDateTime, reviewPromotion FROM Review WHERE reviewDateTime >'2017-09-25' ").getResultList();
 	}
 }

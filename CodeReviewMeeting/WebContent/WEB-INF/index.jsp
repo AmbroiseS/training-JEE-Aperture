@@ -72,6 +72,7 @@
                                     <i class="fa fa-users fa-5x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
+                                <% System.out.println(request.getAttribute("reviews[1]")); %>
                                     <div class="huge">${counterPromo}</div>
                                     <div class="huge-label">Promotions</div>
                                 </div>
@@ -244,6 +245,15 @@
                         </div>
                         <div class="panel-body">
                             <table class="table table-striped">
+                  
+                          <c:forEach var="review" items="${reviews}">    
+                            <tr>
+                                    <td><c:out value="${review.getReviewName()}"/></td>
+                                    <td><c:out value="${review.getReviewPromotion()}"/></td>
+                                    <td class="text-right"><span class="text-muted small"><c:out value="${review.getReviewDateTime()}"/></span></td>
+                                </tr>
+                            </c:forEach>
+                            
                                 <tr>
                                     <td>Code review 1</td>
                                     <td>Promo Février</td>

@@ -37,7 +37,7 @@ public class Review {
 		this.reviewDateTime = reviewDateTime;
 	}
 	
-	public void setReviewClass(String reviewPromotion) {
+	public void setReviewPromotion(String reviewPromotion) {
 		this.reviewPromotion = reviewPromotion;
 	}
 	
