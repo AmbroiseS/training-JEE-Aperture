@@ -33,15 +33,12 @@ public class DashboardServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
-<<<<<<< Updated upstream
-		List members = memberDAO.findAll();		
+		
 		Promotion[] promotions = promoDAO.findAll();
-=======
 		ArrayList<Member> members= new ArrayList<>();
 		if (memberDAO != null)
 			 members = memberDAO.findAll();		
-		List promos = promoDAO.findAll();
->>>>>>> Stashed changes
+		Promotion[] promos = promoDAO.findAll();
 		Review[] reviews = reviewDAO.findAll();
 		
 		int membercount = members.size();
@@ -53,11 +50,8 @@ public class DashboardServlet extends HttpServlet {
 		request.setAttribute("counterPromo", ""+ promocount);
 		request.setAttribute("counterReview", ""+ reviewcount);
 		request.setAttribute("reviews", reviews);
-<<<<<<< Updated upstream
 		request.setAttribute("promotions", promotions);
-=======
 		request.setAttribute("listMembers", members);
->>>>>>> Stashed changes
 		
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	}
