@@ -244,7 +244,7 @@
                             <i class="fa fa-calendar fa-fw"></i> Codes reviews programmées
                         </div>
                         <div class="panel-body">
-                            <table class="table table-striped">
+                            <table class="table table-hover table-striped">
                   
                           <c:forEach var="review" items="${reviews}">    
                             <tr>
