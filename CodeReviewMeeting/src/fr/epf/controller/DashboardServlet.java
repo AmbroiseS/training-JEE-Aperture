@@ -32,26 +32,29 @@ public class DashboardServlet extends HttpServlet {
     }
 
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException { 
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		Promotion[] promotions = promoDAO.findAll();
+		
 		ArrayList<Member> members= new ArrayList<>();
 		if (memberDAO != null)
 			 members = memberDAO.findAll();		
-		Promotion[] promos = promoDAO.findAll();
+
 		Review[] reviews = reviewDAO.findAll();
 		
 		int membercount = members.size();
 		int promocount = promotions.length;
 		int reviewcount = reviews.length;
-					
+
 		
 		request.setAttribute("counterMember", ""+ membercount);
 		request.setAttribute("counterPromo", ""+ promocount);
 		request.setAttribute("counterReview", ""+ reviewcount);
+		
 		request.setAttribute("reviews", reviews);
 		request.setAttribute("promotions", promotions);
 		request.setAttribute("listMembers", members);
+
 		
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
 	}

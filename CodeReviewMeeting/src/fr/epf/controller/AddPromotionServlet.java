@@ -27,7 +27,7 @@ public class AddPromotionServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		Promotion promotion = parsePromotion(req);		
 		promotionDAO.save(promotion);
-		resp.sendRedirect("index");
+		resp.sendRedirect("dashboard");
 	}
 	
 	private Promotion parsePromotion(HttpServletRequest req) {

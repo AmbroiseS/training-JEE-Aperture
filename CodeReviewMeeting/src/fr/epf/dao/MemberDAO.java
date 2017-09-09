@@ -6,6 +6,8 @@ import java.util.List;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
 import fr.epf.models.Member;
 
 @Singleton
@@ -16,6 +18,12 @@ public class MemberDAO {
 	public void save(Member member) {
 		entityManager.persist(member);
 	}
+	
+
+	public void update(Member member) {
+		entityManager.merge(member);
+	}
+	
 	
 	public Member findOne(Long id) {
 		return entityManager.find(Member.class, id);
@@ -32,8 +40,28 @@ public class MemberDAO {
 	public ArrayList<Member> findAll() {
 		List<Object[]> list = entityManager.createQuery("SELECT id, name,email, promotion, birthdate FROM Member")
 				.getResultList();
-		System.out.println(list);
 		return listToArray(list);
+	}
+	public Member getMemberById(Long id) {
+		Member member = new Member();
+		Query query = entityManager
+				.createQuery("SELECT  name,email, promotion, birthdate FROM Member WHERE id="+id.toString());
+		List<Object[]> elementList = query.getResultList();
+		
+		if (elementList!=null && !elementList.isEmpty()) {
+			Object[] object = elementList.get(0);
+			member.setName((String) object[0]);
+			member.setEmail((String) object[1]);
+			member.setPromotion((String) object[2]);
+			member.setBirthdate((String) object[3]);
+			return member;
+		}
+		else {
+			return null;
+		}
+		
+		
+		
 	}
 	
 
