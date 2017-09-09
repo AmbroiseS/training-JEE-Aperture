@@ -176,7 +176,7 @@
 															<a href="/CodeReviewMeeting/modify_member?idUser=<%=member.getId()%>"
 																class="btn btn-warning fa fa-pencil"> Modifier</a>
 
-															<a href="#" class="btn btn-sm btn-danger"><i
+															<a href="/CodeReviewMeeting/delete_member?idMember=<%=member.getId()%>" class="btn btn-sm btn-danger"><i
 																class="fa fa-trash"></i> Supprimer</a>
 														
 

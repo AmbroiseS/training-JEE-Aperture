@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import fr.epf.dao.MemberDAO;
 import fr.epf.models.Member;
 
-/**
- * Servlet implementation class ModifyMemberServlet
- */
 @WebServlet("/modify_member")
 public class ModifyMemberServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -23,11 +20,7 @@ public class ModifyMemberServlet extends HttpServlet {
 	private MemberDAO memberDAO;
 	
 	private Long idMember;
-       
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public ModifyMemberServlet() {
         super();
         // TODO Auto-generated constructor stub

@@ -29,39 +29,23 @@ public class MemberDAO {
 		return entityManager.find(Member.class, id);
 	}
 	
-	public void editOne(Long id) {
-		
-	}
-	
-	public void deleteOne(Long id) {
-		
-	}
+
 	
 	public List<Member> findAll() {
 		return (List<Member>) entityManager.createQuery("FROM Member").getResultList();
 	}
+	
 	public Member getMemberById(Long id) {
-		Member member = new Member();
-		Query query = entityManager
-				.createQuery("SELECT  name,email, promotion, birthdate FROM Member WHERE id="+id.toString());
-		List<Object[]> elementList = query.getResultList();
-		
-		if (elementList!=null && !elementList.isEmpty()) {
-			Object[] object = elementList.get(0);
-			member.setName((String) object[0]);
-			member.setEmail((String) object[1]);
-			member.setPromotion((String) object[2]);
-			member.setBirthdate((String) object[3]);
-			return member;
-		}
-		else {
-			return null;
-		}
-		
-		
-		
+		return (Member) entityManager.createQuery("FROM Member WHERE Id="+id).getSingleResult();		
 	}
 	
+	public Member findOneByPromotion(String promotion) {
+		return (Member) entityManager.createQuery("FROM Member WHERE Promotion="+promotion).getSingleResult();	 
+	}
+	
+	public void deleteOne(Long id) {
+		entityManager.createQuery("DELETE FROM Member WHERE id="+id).executeUpdate();		
+	}
 
 		
 }
