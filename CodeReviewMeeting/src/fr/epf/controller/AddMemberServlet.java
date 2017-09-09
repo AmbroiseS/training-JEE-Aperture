@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import fr.epf.dao.MemberDAO;
+import fr.epf.dao.PromotionDAO;
 import fr.epf.models.Member;
+import fr.epf.models.Promotion;
 
 
 @WebServlet("/add_member")
@@ -19,8 +21,12 @@ public class AddMemberServlet extends HttpServlet {
 	
 	@Inject
 	private MemberDAO memberDAO;
+	@Inject
+	private PromotionDAO promoDAO;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Promotion[] promotions = promoDAO.findAll();
+		request.setAttribute("promotions", promotions);
 		request.getRequestDispatcher("/WEB-INF/add_member.jsp").forward(request, response);
 	}
 

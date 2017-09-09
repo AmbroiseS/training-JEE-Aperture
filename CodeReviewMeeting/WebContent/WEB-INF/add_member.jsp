@@ -81,7 +81,8 @@
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
                                             <select class="input-lg form-control" name="promotion" id="promotion">
-                                                <option>Janvier</option>
+                                                <c:foreach var="promotion" items="${promotions}">>
+                                                <option> <c:out value="${promotion.getName()}" /> </option> 
                                                 <option>Fevrier</option>
                                                 <option>Mars</option>
                                                 <option>Avril</option>
@@ -93,6 +94,7 @@
                                                 <option>Octobre</option>
                                                 <option>Novembre</option>
                                                 <option>Decembre</option>
+                                                </c:foreach>
                                             </select>
                                         </div>
                                         <div class="form-group">

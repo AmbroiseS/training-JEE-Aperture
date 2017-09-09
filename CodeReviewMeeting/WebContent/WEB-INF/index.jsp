@@ -230,7 +230,7 @@
                                 <c:forEach var="promotion" items="${promotions}"> 
                                 <a href="#" class="list-group-item">
                                     <i class="fa fa-users fa-fw"></i><c:out value=" ${promotion.getName()}" />
-                                    <span class="pull-right text-muted small"><em>8 membres</em>
+                                    <span class="pull-right text-muted small"><em>5 membres</em>
                                     </span>
                                 </a>
                                 </c:forEach>
