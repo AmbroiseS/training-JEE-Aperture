@@ -176,8 +176,8 @@
 															<a href="/CodeReviewMeeting/modify_member?idUser=<%=member.getId()%>"
 																class="btn btn-warning fa fa-pencil"> Modifier</a>
 
-															<a href="/CodeReviewMeeting/delete_member?idMember=<%=member.getId()%>" class="btn btn-sm btn-danger"><i
-																class="fa fa-trash"></i> Supprimer</a>
+										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=<%=member.getId()%>"><i
+																class="fa fa-trash" ></i> Supprimer</a>
 														
 
 													</td>
@@ -275,10 +275,18 @@
 	</footer>
 
 	<!-- jQuery -->
-	<script src="/CodeReviewMeeting/jquery-3.1.1.min.js"></script>
+	<script type='text/javascript' src="/CodeReviewMeeting/js/jquery-3.1.1.min.js"></script>
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
+	
+	<!--  Bootstrap add-on JavaScript -->
+	
+    <script src="/CodeReviewMeeting/js/bootstrap-confirmation.js"></script>
+    
+    <!--  Others -->
+    
+    <script src ="/CodeReviewMeeting/js/dashboard.js"> </script>
 
 </body>
 
