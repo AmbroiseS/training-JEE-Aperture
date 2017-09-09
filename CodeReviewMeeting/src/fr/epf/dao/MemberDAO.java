@@ -37,10 +37,8 @@ public class MemberDAO {
 		
 	}
 	
-	public ArrayList<Member> findAll() {
-		List<Object[]> list = entityManager.createQuery("SELECT id, name,email, promotion, birthdate FROM Member")
-				.getResultList();
-		return listToArray(list);
+	public List<Member> findAll() {
+		return (List<Member>) entityManager.createQuery("FROM Member").getResultList();
 	}
 	public Member getMemberById(Long id) {
 		Member member = new Member();
@@ -65,26 +63,5 @@ public class MemberDAO {
 	}
 	
 
-		
-	private ArrayList<Member> listToArray(List<Object[]> list){
-		ArrayList<Member> members= new ArrayList<>();
-		
-		for(Object[] member : list){
-			Member mb = new Member();
-			
-			mb.setId(Long.valueOf(""+ member[0]));
-			
-			mb.setName(member[1].toString());
-			mb.setEmail(member[2].toString());
-			mb.setPromotion(member[3].toString());
-			if (member[4] !=null) {
-				mb.setBirthdate(member[4].toString());	
-			}
-	
-			members.add(mb);
-
-		}
-		return members;
-	}
 		
 }

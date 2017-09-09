@@ -1,6 +1,7 @@
 package fr.epf.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -9,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import fr.epf.dao.PromotionDAO;
 import fr.epf.dao.ReviewDAO;
+import fr.epf.models.Promotion;
 import fr.epf.models.Review;
 
 
@@ -20,9 +23,12 @@ public class AddEventServlet extends HttpServlet {
 	
 	@Inject
 	private ReviewDAO reviewDAO;
-       
+	@Inject
+	private PromotionDAO promoDAO;   
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		List<Promotion> promotions = promoDAO.findAll();
+		request.setAttribute("promotions", promotions);
 		request.getRequestDispatcher("/WEB-INF/add_event.jsp").forward(request, response);
 	}
 

@@ -1,6 +1,7 @@
 package fr.epf.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -25,7 +26,7 @@ public class AddMemberServlet extends HttpServlet {
 	private PromotionDAO promoDAO;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Promotion[] promotions = promoDAO.findAll();
+		List<Promotion> promotions = promoDAO.findAll();
 		request.setAttribute("promotions", promotions);
 		request.getRequestDispatcher("/WEB-INF/add_member.jsp").forward(request, response);
 	}

@@ -34,16 +34,14 @@ public class DashboardServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		Promotion[] promotions = promoDAO.findAll();
+		List<Promotion> promotions = promoDAO.findAll();
 		
-		ArrayList<Member> members= new ArrayList<>();
-		if (memberDAO != null)
-			 members = memberDAO.findAll();		
+		List<Member> members= memberDAO.findAll();		
 
 		Review[] reviews = reviewDAO.findAll();
 		
 		int membercount = members.size();
-		int promocount = promotions.length;
+		int promocount = promotions.size();
 		int reviewcount = reviews.length;
 
 		

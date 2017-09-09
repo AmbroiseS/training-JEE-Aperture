@@ -23,20 +23,8 @@ public class PromotionDAO {
 		return entityManager.find(Promotion.class, id);
 	}
 	
-	public Promotion[] findAll() {
-		//TO DO GET TODAY DATE
-				List<Object[]> promotionsList = entityManager.createQuery("SELECT id, name FROM Promotion").getResultList();
-				int promotionCount = promotionsList.size();
-					Promotion[] promotions= new Promotion[promotionCount];
-					int i= 0;
-					
-					for(Object[] promotion : promotionsList){
-						Promotion promo = new Promotion();
-						promo.setName(promotion[1].toString());					
-						promotions[i] = promo;
-						i++;
-					}
-					return promotions;
+	public List<Promotion> findAll() {
+		return (List<Promotion>) entityManager.createQuery("FROM Promotion").getResultList();			
 	}
 
 }

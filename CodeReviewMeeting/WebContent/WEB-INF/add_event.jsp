@@ -78,19 +78,10 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
-                                            <select class="input-lg form-control" id="promotion" name="promotion">
-                                            		<option>Janvier</option>
-                                                <option>Fevrier</option>
-                                                <option>Mars</option>
-                                                <option>Avril</option>
-                                                <option>Mai</option>
-                                                <option>Juin</option>
-                                                <option>Juillet</option>
-                                                <option>Aout</option>
-                                                <option>Septembre</option>
-                                                <option>Octobre</option>
-                                                <option>Novembre</option>
-                                                <option>Decembre</option>
+                                            <select class="input-lg form-control" id="promotion" name="promotion">                                            		
+                                                 <c:forEach var="promotion" items="${promotions}"> 
+                                                      <option>${promotion.name}</option>
+                          						</c:forEach>  
                                             </select>
                                         </div>
                                         <div class="form-group">
