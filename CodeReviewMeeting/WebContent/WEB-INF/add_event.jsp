@@ -77,6 +77,10 @@
                                             <input type="date" class="input-lg form-control" id="date" name="date" placeholder="Date de l'évènement">
                                         </div>
                                         <div class="form-group">
+                                            <label for="date">Heure</label>
+                                            <input type="time" class="timepicker input-lg form-control" data-time="now" id="time" name="time" placeholder="Heure de l'évènement">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="promotion">Promotion</label>
                                             <select class="input-lg form-control" id="promotion" name="promotion">                                            		
                                                  <c:forEach var="promotion" items="${promotions}"> 
