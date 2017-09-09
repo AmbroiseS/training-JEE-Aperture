@@ -1,5 +1,8 @@
 package fr.epf.dao;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Singleton;
@@ -21,22 +24,12 @@ public class ReviewDAO {
 		return entityManager.find(Review.class, id);
 	}
 	
-	public Review[] findAll() {
-		//TO DO GET TODAY DATE
-		List<Object[]> reviewsList = entityManager.createQuery("SELECT reviewName, reviewDateTime, reviewPromotion FROM Review WHERE reviewDateTime >'2017-09-25' ").getResultList();
-		int reviewcount = reviewsList.size();
-			Review[] reviews= new Review[reviewcount];
-			int i= 0;
-			
-			for(Object[] review : reviewsList){
-				Review rw = new Review();
-				rw.setReviewName(review[0].toString());
-				rw.setReviewPromotion(review[2].toString());
-				rw.setReviewDateTime(review[1].toString());
-				reviews[i] = rw;
-				i++;
-			}
-			return reviews;
+	public List<Review> findAll() {
+		Date now = new Date();
+		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
+		String today = dateFormat.format(now);		
+		return (List<Review>) entityManager.createQuery("FROM Review WHERE reviewDateTime >='"+ today + "' ").getResultList();
+		
 	}
 	
 	

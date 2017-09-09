@@ -77,9 +77,7 @@
 									<i class="fa fa-users fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<%
-										System.out.println(request.getAttribute("reviews[1]"));
-									%>
+									<!-- TO DOT --> 
 									<div class="huge">${counterPromo}</div>
 									<div class="huge-label">Promotions</div>
 								</div>
@@ -175,7 +173,7 @@
 															<a href="/CodeReviewMeeting/modify_member?idUser=${member.id}"
 																class="btn btn-warning fa fa-pencil"> Modifier</a>
 
-										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${member.id}"><i
+										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${member.name}"><i
 																class="fa fa-trash" ></i> Supprimer</a>
 														
 
@@ -213,10 +211,10 @@
 
 									<c:forEach var="review" items="${reviews}">
 										<tr>
-											<td><c:out value="${review.getReviewName()}" /></td>
-											<td><c:out value="${review.getReviewPromotion()}" /></td>
-											<td class="text-right"><span class="text-muted small"><c:out
-														value="${review.getReviewDateTime()}" /></span></td>
+										  <td>${review.reviewName}</td>
+										  <td>${review.reviewPromotion}" </td>
+										  <td class="text-right"><span class="text-muted small">${review.reviewDateTime}" </span></td>
+									
 										</tr>
 									</c:forEach>
 								</table>

@@ -2,7 +2,10 @@ package fr.epf.controller;
 
 import java.io.IOException;
 import java.sql.Array;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -34,15 +37,13 @@ public class DashboardServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Promotion> promotions = promoDAO.findAll();
-		
+		List<Promotion> promotions = promoDAO.findAll();		
 		List<Member> members= memberDAO.findAll();		
-
-		Review[] reviews = reviewDAO.findAll();
+		List<Review> reviews = reviewDAO.findAll();
 		
 		int membercount = members.size();
 		int promocount = promotions.size();
-		int reviewcount = reviews.length;
+		int reviewcount = reviews.size();
 
 		
 		request.setAttribute("counterMember", ""+ membercount);
@@ -58,7 +59,7 @@ public class DashboardServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		doGet(request, response);
 	}
 
