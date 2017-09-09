@@ -151,6 +151,7 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-lg-12">
+							
 									<div class="table-responsive">
 										<table class="table table-hover table-striped">
 											<thead>
@@ -162,29 +163,25 @@
 												</tr>
 											</thead>
 											<tbody>
-												<%
-													ArrayList<Member> members = (ArrayList<Member>) request.getAttribute("listMembers");
-													for (Member member : members) {
-												%>
+												<c:forEach var="member" items="${members}">
 												<tr>
-													<td><%=member.getName()%></td>
-													<td><%=member.getEmail()%></td>
-													<td><%=member.getPromotion()%></td>
+												
+													<td>${member.name}</td>
+													<td>${member.email}</td>
+													<td>${member.promotion}</td>
 													<td class="text-right">
 														
 
-															<a href="/CodeReviewMeeting/modify_member?idUser=<%=member.getId()%>"
+															<a href="/CodeReviewMeeting/modify_member?idUser=${member.id}"
 																class="btn btn-warning fa fa-pencil"> Modifier</a>
 
-										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=<%=member.getId()%>"><i
+										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${member.id}"><i
 																class="fa fa-trash" ></i> Supprimer</a>
 														
 
 													</td>
 												</tr>
-												<%
-													}
-												%>
+												</c:forEach>
 											</tbody>
 										</table>
 										<div class="text-center">
@@ -263,7 +260,6 @@
 			<!-- /.row -->
 		</div>
 		<!-- /#page-wrapper -->
-
 	</div>
 	<!-- /#wrapper -->
 	<footer class="footer">

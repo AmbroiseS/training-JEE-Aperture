@@ -51,7 +51,7 @@ public class DashboardServlet extends HttpServlet {
 		
 		request.setAttribute("reviews", reviews);
 		request.setAttribute("promotions", promotions);
-		request.setAttribute("listMembers", members);
+		request.setAttribute("members", members);
 
 		
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
