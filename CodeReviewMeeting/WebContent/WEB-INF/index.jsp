@@ -234,12 +234,13 @@
 						<div class="panel-body">
 
 							<div class="list-group panel-scroll">
+							
 								<a href="#" class="list-group-item"> <c:forEach
 										var="promotion" items="${promotions}">
 										<a href="#" class="list-group-item"> <i
 											class="fa fa-users fa-fw"></i> <c:out
 												value=" ${promotion.getName()}" /> <span
-											class="pull-right text-muted small"><em>8 membres</em>
+											class="pull-right text-muted small"><em>${promotion.promotionSize}</em>
 										</span>
 										</a>
 									</c:forEach>

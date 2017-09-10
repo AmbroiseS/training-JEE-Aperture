@@ -12,6 +12,7 @@ public class Promotion {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	private String name;
+	private Integer promotionSize;
 	
 	public Promotion() {
 		super();	
@@ -33,6 +34,13 @@ public class Promotion {
 	
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public Integer getPromotionSize() {
+		return promotionSize;
+	}
+	public void setPromotionSize(Integer promotionSize) {
+		this.promotionSize = promotionSize;
 	}
 	
 	
