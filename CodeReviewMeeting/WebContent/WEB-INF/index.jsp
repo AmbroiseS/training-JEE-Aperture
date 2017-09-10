@@ -237,11 +237,12 @@
 							
 								<a href="#" class="list-group-item"> <c:forEach
 										var="promotion" items="${promotions}">
-										<a href="#" class="list-group-item"> <i
-											class="fa fa-users fa-fw"></i> <c:out
-												value=" ${promotion.getName()}" /> <span
-											class="pull-right text-muted small"><em>${promotion.promotionSize}</em>
-										</span>
+										<a href="/CodeReviewMeeting/show_member_promotion?idPromotion=${promotion.id}" class="list-group-item"> <i
+											class="fa fa-users fa-fw"></i>
+												<c:out value=" ${promotion.getName()}"/> 
+												<span class="pull-right text-muted small">
+													<em>${promotion.promotionSize}</em>
+												</span>
 										</a>
 									</c:forEach>
 							</div>

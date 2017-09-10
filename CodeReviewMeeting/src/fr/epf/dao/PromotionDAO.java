@@ -27,8 +27,8 @@ public class PromotionDAO {
 		return (List<Promotion>) entityManager.createQuery("FROM Promotion").getResultList();			
 	}
 	
-	public List<Member> findAllOfPromotion(String promotion) {	
-		return (List<Member>) entityManager.createQuery("FROM Member WHERE promotion= \'"+promotion+"\'").getResultList();
+	public Promotion findPromotionById(Long id) {	
+		return (Promotion) entityManager.createQuery("FROM Promotion WHERE id= \'"+id+"\'").getSingleResult();
 	}
 
 }
