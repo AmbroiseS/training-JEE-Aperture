@@ -212,8 +212,8 @@
 									<c:forEach var="review" items="${reviews}">
 										<tr>
 										  <td>${review.reviewName}</td>
-										  <td>${review.reviewPromotion}" </td>
-										  <td class="text-right"><span class="text-muted small">${review.reviewDateTime}" </span></td>
+										  <td>${review.reviewPromotion} </td>
+										  <td class="text-right"><span class="text-muted small">${review.reviewDateTime} </span></td>
 									
 										</tr>
 									</c:forEach>
