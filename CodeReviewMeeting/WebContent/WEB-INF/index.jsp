@@ -173,7 +173,7 @@
 															<a href="/CodeReviewMeeting/modify_member?idUser=${member.id}"
 																class="btn btn-warning fa fa-pencil"> Modifier</a>
 
-										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${member.name}"><i
+										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${member.id}"><i
 																class="fa fa-trash" ></i> Supprimer</a>
 														
 
