@@ -61,12 +61,12 @@
 					<!-- /.panel -->
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<i class="fa fa-user fa-fw"></i> Gestion des membres
+							<i class="fa fa-user fa-fw"></i> Gestion des membres de la promotion ${promotion.name}
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
 							<div class="row">
-								<div class="col-lg-12">
+								<div style="width:800px; margin:0 auto;">
 							
 									<div class="table-responsive">
 										<table class="table table-hover table-striped">
@@ -74,7 +74,6 @@
 												<tr>
 													<th>Nom</th>
 													<th>Email</th>
-													<th>Promotion</th>
 													<th class="text-right">Action</th>
 												</tr>
 											</thead>
@@ -84,15 +83,14 @@
 												
 													<td>${membersOfPromotion.name}</td>
 													<td>${membersOfPromotion.email}</td>
-													<td>${membersOfPromotion.promotion}</td>
 													<td class="text-right">
 														
 
-															<a href="/CodeReviewMeeting/modify_member?idUser=${membersOfPromotion.id}"
-																class="btn btn-warning fa fa-pencil"> Modifier</a>
+															<!--  <a href="/CodeReviewMeeting/modify_member?idUser=${membersOfPromotion.id}"
+																class="btn btn-warning fa fa-pencil"> Changer de promotion</a> -->
 
-										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${membersOfPromotion.id}"><i
-																class="fa fa-trash" ></i> Supprimer</a>
+										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member_promotion?idMember=${membersOfPromotion.id}&idPromotion=${promotion.id}"><i
+																class="fa fa-trash" ></i> Supprimer de la promotion</a>
 														
 
 													</td>
@@ -122,6 +120,14 @@
 
 	<!-- Bootstrap Core JavaScript -->
 	<script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
+	
+		<!--  Bootstrap add-on JavaScript -->
+	
+    <script src="/CodeReviewMeeting/js/bootstrap-confirmation.js"></script>
+    
+    <!--  Others -->
+    
+    <script src ="/CodeReviewMeeting/js/dashboard.js"> </script>
 
 </body>
 

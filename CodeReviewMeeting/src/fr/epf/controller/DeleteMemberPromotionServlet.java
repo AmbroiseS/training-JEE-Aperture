@@ -1,7 +1,6 @@
 package fr.epf.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -12,32 +11,25 @@ import javax.servlet.http.HttpServletResponse;
 
 import fr.epf.dao.MemberDAO;
 import fr.epf.dao.PromotionDAO;
-import fr.epf.models.Member;
-import fr.epf.models.Promotion;
 
-@WebServlet("/show_member_promotion")
-public class ShowMemberPromotionServlet extends HttpServlet {
+
+@WebServlet("/delete_member_promotion")
+public class DeleteMemberPromotionServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
 	@Inject
 	private MemberDAO memberDAO;
 	@Inject
-	private PromotionDAO promoDAO;
-
-
-
-
-
+	private PromotionDAO PromotionDAO;
+       
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Long idPromotion= Long.valueOf(request.getParameter("idPromotion"));
-		Promotion promotion = promoDAO.findPromotionById(idPromotion);
-		List<Member> membersOfPromotion = memberDAO.findAllOfPromotion(promotion.getName());
-		request.setAttribute("membersOfPromotion", membersOfPromotion);
-		request.setAttribute("promotion", promotion);
-
-		request.getRequestDispatcher("/WEB-INF/show_member_promotion.jsp").forward(request, response);
+		Long idMember= Long.valueOf(request.getParameter("idMember"));
+		memberDAO.deleteMemberPromotion(idMember);
+		response.sendRedirect("dashboard");
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 		doGet(request, response);
 	}
 
