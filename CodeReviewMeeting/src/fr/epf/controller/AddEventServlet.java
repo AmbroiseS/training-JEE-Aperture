@@ -46,7 +46,7 @@ public class AddEventServlet extends HttpServlet {
 		Review review = parseReview(req);
 
 		//get all the destinators
-		String promotion = req.getAttribute("name").toString();
+		String promotion = req.getParameter("promotion");
 		List<Member> promo = memberDAO.findManyByPromotion(promotion);
 
 		emailBean.sendEmail("Test Java EE", "21-09-12", "This is a test for java ee project", promo);
