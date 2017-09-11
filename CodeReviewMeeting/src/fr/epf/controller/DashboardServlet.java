@@ -1,13 +1,8 @@
 package fr.epf.controller;
 
 import java.io.IOException;
-import java.sql.Array;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,25 +32,32 @@ public class DashboardServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<Promotion> promotions = promoDAO.findAll();		
+				
 		List<Member> members= memberDAO.findAll();		
 		List<Review> reviews = reviewDAO.findAll();
 		
-		int membercount = members.size();
-		int promocount = promotions.size();
-		int reviewcount = reviews.size();
-
+		List<Promotion> promotions = displayPromotion();
 		
-		request.setAttribute("counterMember", ""+ membercount);
-		request.setAttribute("counterPromo", ""+ promocount);
-		request.setAttribute("counterReview", ""+ reviewcount);
+		request.setAttribute("counterMember", ""+ members.size());
+		request.setAttribute("counterPromo", ""+ promotions.size());
+		request.setAttribute("counterReview", ""+ reviews.size());
 		
 		request.setAttribute("reviews", reviews);
 		request.setAttribute("promotions", promotions);
 		request.setAttribute("members", members);
 
-		
 		request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
+	}
+
+
+	private List<Promotion> displayPromotion() {
+		List<Promotion> promotions = promoDAO.findAll();
+		List<List<Member>> membersOfPromotion = new ArrayList<>();
+		for(int i=0; i<promotions.size(); i++) {
+			membersOfPromotion.add(memberDAO.findAllOfPromotion(promotions.get(i).getName()));
+			promotions.get(i).setPromotionSize(membersOfPromotion.get(i).size());
+		};
+		return promotions;
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

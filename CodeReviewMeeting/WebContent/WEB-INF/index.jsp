@@ -173,7 +173,7 @@
 															<a href="/CodeReviewMeeting/modify_member?idUser=${member.id}"
 																class="btn btn-warning fa fa-pencil"> Modifier</a>
 
-										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${member.name}"><i
+										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${member.id}"><i
 																class="fa fa-trash" ></i> Supprimer</a>
 														
 
@@ -234,13 +234,15 @@
 						<div class="panel-body">
 
 							<div class="list-group panel-scroll">
+							
 								<a href="#" class="list-group-item"> <c:forEach
 										var="promotion" items="${promotions}">
-										<a href="#" class="list-group-item"> <i
-											class="fa fa-users fa-fw"></i> <c:out
-												value=" ${promotion.getName()}" /> <span
-											class="pull-right text-muted small"><em>8 membres</em>
-										</span>
+										<a href="/CodeReviewMeeting/show_member_promotion?idPromotion=${promotion.id}" class="list-group-item"> <i
+											class="fa fa-users fa-fw"></i>
+												<c:out value=" ${promotion.getName()}"/> 
+												<span class="pull-right text-muted small">
+													<em>${promotion.promotionSize}</em>
+												</span>
 										</a>
 									</c:forEach>
 							</div>

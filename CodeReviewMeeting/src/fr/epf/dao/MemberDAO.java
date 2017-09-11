@@ -1,12 +1,9 @@
 package fr.epf.dao;
 
-import java.util.ArrayList;
 import java.util.List;
-
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 
 import fr.epf.models.Member;
 
@@ -28,7 +25,7 @@ public class MemberDAO {
 	public Member findOne(Long id) {
 		return entityManager.find(Member.class, id);
 	}
-		
+
 	public List<Member> findAll() {
 		return (List<Member>) entityManager.createQuery("FROM Member").getResultList();
 	}
@@ -42,8 +39,13 @@ public class MemberDAO {
 		return (List<Member>) entityManager.createQuery("FROM Member WHERE promotion='"+promotion+ "'").getResultList(); 
 	}
 	
+
 	public void deleteOne(Long id) {
 		entityManager.createQuery("DELETE FROM Member WHERE id="+id).executeUpdate();		
+	}
+	
+	public List<Member> findAllOfPromotion(String promotion) {
+		return (List<Member>) entityManager.createQuery("FROM Member WHERE promotion= \'"+promotion.toString()+"\'").getResultList();			
 	}
 
 		
