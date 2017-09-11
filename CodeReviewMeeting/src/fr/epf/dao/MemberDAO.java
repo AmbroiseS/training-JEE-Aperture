@@ -28,9 +28,7 @@ public class MemberDAO {
 	public Member findOne(Long id) {
 		return entityManager.find(Member.class, id);
 	}
-	
-
-	
+		
 	public List<Member> findAll() {
 		return (List<Member>) entityManager.createQuery("FROM Member").getResultList();
 	}
@@ -39,8 +37,9 @@ public class MemberDAO {
 		return (Member) entityManager.createQuery("FROM Member WHERE Id="+id).getSingleResult();		
 	}
 	
-	public Member findOneByPromotion(String promotion) {
-		return (Member) entityManager.createQuery("FROM Member WHERE Promotion="+promotion).getSingleResult();	 
+	@SuppressWarnings("unchecked")
+	public List<Member> findManyByPromotion(String promotion) {
+		return (List<Member>) entityManager.createQuery("FROM Member WHERE promotion='"+promotion+ "'").getResultList(); 
 	}
 	
 	public void deleteOne(Long id) {
