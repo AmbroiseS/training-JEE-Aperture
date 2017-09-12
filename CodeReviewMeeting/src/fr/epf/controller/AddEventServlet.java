@@ -43,13 +43,7 @@ public class AddEventServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
-		Review review = parseReview(req);
-
-		//get all the destinators
-		String promotion = req.getParameter("promotion");
-		List<Member> promo = memberDAO.findManyByPromotion(promotion);
-
-		emailBean.sendEmail("Test Java EE", "21-09-12", "This is a test for java ee project", promo);
+		Review review = parseReview(req);	
 		reviewDAO.save(review);
 		resp.sendRedirect("dashboard");
 	}
@@ -58,7 +52,10 @@ public class AddEventServlet extends HttpServlet {
 		String name = req.getParameter("name");
 		String date = (String) req.getParameter("date") + " " + req.getParameter("time");
 		String promotion = req.getParameter("promotion");
-		String description = req.getParameter("description");		
+		String description = req.getParameter("description");
+		List<Member> promo = memberDAO.findManyByPromotion(promotion);
+		emailBean.sendEmail(name, date,description, promo);
+		
 		return new Review(name, date, promotion, description);
 	}
 
