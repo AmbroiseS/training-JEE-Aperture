@@ -34,22 +34,28 @@ public class DashboardServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		String valeur = request.getParameter("valeur");
-		if (valeur!= null) {
-			//todo manage search input
-			/*String resultat = "invalide";
+		Gson gson = new Gson();
 
+		if (valeur!= null) {
 			response.setContentType("text/xml");
 			response.setHeader("Cache-Control", "no-cache");
-
-			if ((valeur != null) && valeur.startsWith("X")) {
-				resultat = "valide";
+			
+			if (valeur!="") {
+				List<Member> members= memberDAO.getMemberbyName(valeur);
+				if (members!=null && members.size()!=0) {				
+					response.getWriter().write(gson.toJson(members));
+					System.out.println(gson.toJson(members));
+					System.out.println(String.valueOf(members.size()));
+					
+				}
+				
+			}else {
+				response.getWriter().write("<message>" + gson.toJson(memberDAO.findAll()) + "</message>");	
 			}
-
-			response.getWriter().write("<message>" + resultat + "</message>");
-			*/
+			
+		
 			
 		}else {
-			Gson gson = new Gson();
 			List<Member> members = memberDAO.findAll();
 			List<Review> reviews = reviewDAO.findAll();
 

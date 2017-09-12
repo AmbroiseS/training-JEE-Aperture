@@ -5,10 +5,11 @@ $(document).ready(function() {
 	    }
 	});
 
-	//  document.location.href="/CodeReviewMeeting/delete_member?idMember="+member;
 });
+
+
 var requete;
-//TODO 
+
 function valider() {
    var donnees = document.getElementById("donnees");
    var url = "dashboard?valeur=" + escape(donnees.value);
@@ -18,42 +19,55 @@ function valider() {
        requete = new ActiveXObject("Microsoft.XMLHTTP");
    }
    requete.open("GET", url, true);
-   requete.onreadystatechange = majIHM;
-   requete.send(null);
+   requete.onreadystatechange = getResponseList;
+   requete.send();
 }
-//TODO 
-function majIHM() {
-  var message = "";
 
+function getResponseList() {
   if (requete.readyState == 4) {
     if (requete.status == 200) {
-      // exploitation des données de la réponse
-
-      var messageTag = requete.responseXML.getElementsByTagName("message")[0];
-      message = messageTag.childNodes[0].nodeValue;
-      mdiv = document.getElementById("validationMessage");
-      if (message == "invalide") {
-          mdiv.innerHTML = "<img src='ima/inv.png'>";
-       } else {
-          mdiv.innerHTML = "<img src='ima/val.png'>";
-       }
+    	displayMembers(requete.responseText,1);   
     }
   }
 }
-function displayMembers(data){
-	var trHTML = '';
+
+function displayMembers(data,from){
 	
-	for(i in data){
-		console.log(data[i].name);
-	    trHTML += '<tr><td>' + data[i].name + '</td><td>' + data[i].email + '</td>+<td>' + data[i].promotion + '</td>';
-	    trHTML += '<td ' + 'class=\"text-right\">'+'<a href=\"/CodeReviewMeeting/modify_member?idUser='+data[i].id+"\"";
-		trHTML += ' class=\"btn btn-warning fa fa-pencil\"> Modifier</a>'
-		trHTML += '<a class=\"btn btn-sm btn-danger\" data-toggle=\"confirmation\"';
-		trHTML += ' href=\"/CodeReviewMeeting/delete_member?idMember='+data[i].id+"\"";
-		trHTML += '><i class=\"fa fa-trash\"></i> Supprimer</a></td></tr>';
+	if(data !== 'undefined' && data !== ''){
+		
+		$('#validationMessage').text("");
+
+		var array = data;
+		var trHTML = '';
+
+	    if(from == 1){
+		   array= $.parseJSON(data);
+		}
+	    
+		//empty table
+		$("#memberstable tr>td").remove();
+		
+		//fill table	
+		array.forEach( function(s) { 
+		    trHTML += '<tr><td>' + s.name + '</td><td>' + s.email + '</td>+<td>' + s.promotion + '</td>';
+		    trHTML += '<td ' + 'class=\"text-right\">'+'<a href=\"/CodeReviewMeeting/modify_member?idUser='+s.id+"\"";
+			trHTML += ' class=\"btn btn-warning fa fa-pencil\"> Modifier</a>'
+			trHTML += '<a class=\"btn btn-sm btn-danger\" data-toggle=\"confirmation\"';
+			trHTML += ' href=\"/CodeReviewMeeting/delete_member?idMember='+s.id+"\"";
+			trHTML += '><i class=\"fa fa-trash\"></i> Supprimer</a></td></tr>';	} );
+
+		$('#memberstable').append(trHTML);
+		
+	}
+	else{
+	
+		$('#validationMessage').text("Utilisateur absent");
+		//empty table
+		$("#memberstable tr>td").remove();
+		
 	}
 
-	$('#memberstable').append(trHTML);
+	
 	
 }
 

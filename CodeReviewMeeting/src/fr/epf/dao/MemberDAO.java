@@ -34,6 +34,10 @@ public class MemberDAO {
 		return (Member) entityManager.createQuery("FROM Member WHERE Id="+id).getSingleResult();		
 	}
 	
+	public List<Member> getMemberbyName(String name) {
+		return(List<Member>) entityManager.createQuery("FROM Member WHERE name like \'%"+name+"%\'").getResultList();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Member> findManyByPromotion(String promotion) {
 		return (List<Member>) entityManager.createQuery("FROM Member WHERE promotion='"+promotion+ "'").getResultList(); 

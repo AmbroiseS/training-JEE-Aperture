@@ -158,13 +158,13 @@
 						<div class="panel-body">
 							<table>
 								<body>
-								<td>todo search :</td>
+								<td>Chercher un utilisateur :</td>
 								<td nowrap><input type="text" id="donnees" name="donnees"
 									size="30" onkeyup="valider();"></td>
-								<td>
-								<td>
+									<td>
 									<div id="validationMessage"></div>
 								</td>
+								
 </body>
 
 </table>
@@ -184,10 +184,10 @@
 				</thead>
 				
 				
-				<tbody>
+				<tbody id"tablebody">
 				<script type="text/javascript">
 					var members2 = <%=request.getAttribute("members2")%>;
-				    displayMembers(members2);
+				    displayMembers(members2,0);
 				</script>
 				</tbody>
 			</table>
