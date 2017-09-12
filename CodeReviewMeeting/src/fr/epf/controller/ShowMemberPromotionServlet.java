@@ -30,7 +30,7 @@ public class ShowMemberPromotionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Long idPromotion= Long.valueOf(request.getParameter("idPromotion"));
 		Promotion promotion = promoDAO.findPromotionById(idPromotion);
-		List<Member> membersOfPromotion = memberDAO.findAllOfPromotion(promotion.getName());
+		List<Member> membersOfPromotion = memberDAO.findManyByPromotion(promotion.getName());
 		request.setAttribute("membersOfPromotion", membersOfPromotion);
 		request.setAttribute("promotion", promotion);
 

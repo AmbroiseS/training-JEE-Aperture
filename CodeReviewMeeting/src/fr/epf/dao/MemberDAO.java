@@ -47,10 +47,6 @@ public class MemberDAO {
 	public void deleteMemberPromotion(Long idMember) {
 		entityManager.createQuery("UPDATE Member SET promotion= \'\' WHERE id="+idMember).executeUpdate();	
 	}
-	
-	public List<Member> findAllOfPromotion(String promotion) {
-		return (List<Member>) entityManager.createQuery("FROM Member WHERE promotion= \'"+promotion.toString()+"\'").getResultList();			
-	}
 
 		
 }

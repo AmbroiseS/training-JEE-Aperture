@@ -74,7 +74,7 @@ public class DashboardServlet extends HttpServlet {
 		List<Promotion> promotions = promoDAO.findAll();
 		List<List<Member>> membersOfPromotion = new ArrayList<>();
 		for (int i = 0; i < promotions.size(); i++) {
-			membersOfPromotion.add(memberDAO.findAllOfPromotion(promotions.get(i).getName()));
+			membersOfPromotion.add(memberDAO.findManyByPromotion(promotions.get(i).getName()));
 			promotions.get(i).setPromotionSize(membersOfPromotion.get(i).size());
 		}
 		;
