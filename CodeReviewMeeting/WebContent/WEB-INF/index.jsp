@@ -13,6 +13,15 @@
 
 <title>When Is My Code Review?</title>
 
+<!-- jQuery -->
+<script type='text/javascript'
+	src="/CodeReviewMeeting/js/jquery-3.1.1.min.js"></script>
+
+
+<script src="/CodeReviewMeeting/js/dashboard.js"></script>
+
+
+
 <!-- Bootstrap CSS -->
 <link href="/CodeReviewMeeting/css/bootstrap.min.css" rel="stylesheet">
 
@@ -77,7 +86,7 @@
 									<i class="fa fa-users fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<!-- TO DOT --> 
+									<!-- TO DOT -->
 									<div class="huge">${counterPromo}</div>
 									<div class="huge-label">Promotions</div>
 								</div>
@@ -147,142 +156,140 @@
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-							<div class="row">
-								<div class="col-lg-12">
-							
-									<div class="table-responsive">
-										<table class="table table-hover table-striped">
-											<thead>
-												<tr>
-													<th>Nom</th>
-													<th>Email</th>
-													<th>Promotion</th>
-													<th class="text-right">Action</th>
-												</tr>
-											</thead>
-											<tbody>
-												<c:forEach var="member" items="${members}">
-												<tr>
-												
-													<td>${member.name}</td>
-													<td>${member.email}</td>
-													<td>${member.promotion}</td>
-													<td class="text-right">
-														
+							<table>
+								<body>
+								<td>todo search :</td>
+								<td nowrap><input type="text" id="donnees" name="donnees"
+									size="30" onkeyup="valider();"></td>
+								<td>
+								<td>
+									<div id="validationMessage"></div>
+								</td>
+</body>
 
-															<a href="/CodeReviewMeeting/modify_member?idUser=${member.id}"
-																class="btn btn-warning fa fa-pencil"> Modifier</a>
+</table>
 
-										<a class="btn btn-sm btn-danger" data-toggle="confirmation" href="/CodeReviewMeeting/delete_member?idMember=${member.id}"><i
-																class="fa fa-trash" ></i> Supprimer</a>
-														
+<div class="row">
+	<div class="col-lg-12">
 
-													</td>
-												</tr>
-												</c:forEach>
-											</tbody>
-										</table>
-										<div class="text-center">
-											<ul class="pagination">
-												<li><a href="#">1</a></li>
-												<li><a href="#">2</a></li>
-												<li><a href="#">3</a></li>
-											</ul>
-										</div>
-									</div>
-									<!-- /.table-responsive -->
-								</div>
-							</div>
-							<!-- /.row -->
-						</div>
-						<!-- /.panel-body -->
-					</div>
-					<!-- /.panel -->
-				</div>
-				<!-- /.col-lg-8 -->
-				<div class="col-lg-4">
-					<div class="panel panel-default ">
-						<div class="panel-heading">
-							<i class="fa fa-calendar fa-fw"></i> Codes reviews programmées
-						</div>
-						<div class="panel-body">
-							<div class="panel-scroll">
-								<table class="table table-hover table-striped">
-
-									<c:forEach var="review" items="${reviews}">
-										<tr>
-										  <td>${review.reviewName}</td>
-										  <td>${review.reviewPromotion} </td>
-										  <td class="text-right"><span class="text-muted small">${review.reviewDateTime} </span></td>
-									
-										</tr>
-									</c:forEach>
-								</table>
-							</div>
-							<br /> <a href="/CodeReviewMeeting/add_event"
-								class="btn btn-default btn-block">Programmer une code review</a>
-						</div>
-						<!-- /.panel-body -->
-					</div>
-					<!-- /.panel -->
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<i class="fa fa-users fa-fw"></i> Gestion des promotions
-						</div>
-						<!-- /.panel-heading -->
-						<div class="panel-body">
-
-							<div class="list-group panel-scroll">
-							
-								<a href="#" class="list-group-item"> <c:forEach
-										var="promotion" items="${promotions}">
-										<a href="/CodeReviewMeeting/show_member_promotion?idPromotion=${promotion.id}" class="list-group-item"> <i
-											class="fa fa-users fa-fw"></i>
-												<c:out value=" ${promotion.getName()}"/> 
-												<span class="pull-right text-muted small">
-													<em>${promotion.promotionSize}</em>
-												</span>
-										</a>
-									</c:forEach>
-							</div>
-							<!-- /.list-group -->
-							<a href="/CodeReviewMeeting/add_promotion"
-								class="btn btn-default btn-block">Créer une nouvelle
-								promotion</a>
-						</div>
-						<!-- /.panel-body -->
-					</div>
-					<!-- /.panel -->
-				</div>
-				<!-- /.col-lg-4 -->
+		<div class="table-responsive">
+			<table class="table table-hover table-striped" id="memberstable">
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Email</th>
+						<th>Promotion</th>
+						<th class="text-right">Action</th>
+					</tr>
+				</thead>
+				
+				
+				<tbody>
+				<script type="text/javascript">
+					var members2 = <%=request.getAttribute("members2")%>;
+				    displayMembers(members2);
+				</script>
+				</tbody>
+			</table>
+			<div class="text-center">
+				<ul class="pagination">
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+				</ul>
 			</div>
-			<!-- /.row -->
 		</div>
-		<!-- /#page-wrapper -->
+		<!-- /.table-responsive -->
 	</div>
-	<!-- /#wrapper -->
-	<footer class="footer">
-		<div class="container">
-			<div class="row text-center">
-				<img src="/CodeReviewMeeting/img/ebusiness.png" class="logo" alt="">
-			</div>
+</div>
+<!-- /.row -->
+</div>
+<!-- /.panel-body -->
+</div>
+<!-- /.panel -->
+</div>
+<!-- /.col-lg-8 -->
+<div class="col-lg-4">
+	<div class="panel panel-default ">
+		<div class="panel-heading">
+			<i class="fa fa-calendar fa-fw"></i> Codes reviews programmées
 		</div>
-	</footer>
+		<div class="panel-body">
+			<div class="panel-scroll">
+				<table class="table table-hover table-striped">
 
-	<!-- jQuery -->
-	<script type='text/javascript' src="/CodeReviewMeeting/js/jquery-3.1.1.min.js"></script>
+					<c:forEach var="review" items="${reviews}">
+						<tr>
+							<td>${review.reviewName}</td>
+							<td>${review.reviewPromotion}</td>
+							<td class="text-right"><span class="text-muted small">${review.reviewDateTime}
+							</span></td>
 
-	<!-- Bootstrap Core JavaScript -->
-	<script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
+						</tr>
+					</c:forEach>
+				</table>
+			</div>
+			<br /> <a href="/CodeReviewMeeting/add_event"
+				class="btn btn-default btn-block">Programmer une code review</a>
+		</div>
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<i class="fa fa-users fa-fw"></i> Gestion des promotions
+		</div>
+		<!-- /.panel-heading -->
+		<div class="panel-body">
+
+			<div class="list-group panel-scroll">
+
+				<a href="#" class="list-group-item"> <c:forEach var="promotion"
+						items="${promotions}">
+						<a
+							href="/CodeReviewMeeting/show_member_promotion?idPromotion=${promotion.id}"
+							class="list-group-item"> <i class="fa fa-users fa-fw"></i> <c:out
+								value=" ${promotion.getName()}" /> <span
+							class="pull-right text-muted small"> <em>${promotion.promotionSize}</em>
+						</span>
+						</a>
+					</c:forEach>
+			</div>
+			<!-- /.list-group -->
+			<a href="/CodeReviewMeeting/add_promotion"
+				class="btn btn-default btn-block">Créer une nouvelle promotion</a>
+		</div>
+		<!-- /.panel-body -->
+	</div>
+	<!-- /.panel -->
+</div>
+<!-- /.col-lg-4 -->
+</div>
+<!-- /.row -->
+</div>
+<!-- /#page-wrapper -->
+</div>
+<!-- /#wrapper -->
+<footer class="footer">
+	<div class="container">
+		<div class="row text-center">
+			<img src="/CodeReviewMeeting/img/ebusiness.png" class="logo" alt="">
+		</div>
+	</div>
+</footer>
+
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
+
+<!--  Bootstrap add-on JavaScript -->
+
+<script src="/CodeReviewMeeting/js/bootstrap-confirmation.js"></script>
+
+<!--  Others -->
+
 	
-	<!--  Bootstrap add-on JavaScript -->
-	
-    <script src="/CodeReviewMeeting/js/bootstrap-confirmation.js"></script>
-    
-    <!--  Others -->
-    
-    <script src ="/CodeReviewMeeting/js/dashboard.js"> </script>
 
 </body>
 
