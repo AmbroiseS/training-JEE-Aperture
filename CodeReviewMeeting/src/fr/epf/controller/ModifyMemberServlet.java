@@ -42,6 +42,7 @@ public class ModifyMemberServlet extends HttpServlet {
 		request.setAttribute("member",member );
 		List<Promotion> promotions = promoDAO.findAll();
 		request.setAttribute("promotions", promotions);
+		request.setAttribute("memberPromotion", member.getPromotion());
 
 		request.getRequestDispatcher("/WEB-INF/modify_member.jsp").forward(request, response);
 	}

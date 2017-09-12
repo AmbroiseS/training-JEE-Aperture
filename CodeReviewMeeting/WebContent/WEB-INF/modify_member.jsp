@@ -89,7 +89,8 @@
 											<select class="input-lg form-control" name="promotion"
 												id="promotion">											
                                                  <c:forEach var="promotion" items="${promotions}"> 
-                                                      <option>${promotion.name}</option>
+                                                      <option ${promotion.name == memberPromotion ? 'selected' : ''}>${promotion.name}
+                                                      </option>
                           						</c:forEach>  
 											</select>
 										</div>
