@@ -50,14 +50,15 @@ function displayMembers(data,from){
 		//fill table	
 		array.forEach( function(s) { 
 		    trHTML += '<tr><td>' + s.name + '</td><td>' + s.email + '</td>+<td>' + s.promotion + '</td>';
-		    trHTML += '<td ' + 'class=\"text-right\">'+'<a href=\"/CodeReviewMeeting/modify_member?idUser='+s.id+"\"";
-			trHTML += ' class=\"btn btn-warning fa fa-pencil\"> Modifier</a>'
-			trHTML += '<a class=\"btn btn-sm btn-danger\" data-toggle=\"confirmation\"';
+		    trHTML += '<td ' + 'class=\"text-right\">';
+		    trHTML += '<a href=\"/CodeReviewMeeting/modify_member?idUser='+s.id+"\"";
+			trHTML += ' class=\"btn btn-sm btn-warning fa fa-pencil\"> Modifier</a>';
+			trHTML += '<a> </a>';
+			trHTML += '<a class=\"btn btn-sm btn-danger fa fa-trash\" data-toggle=\"confirmation\"';
 			trHTML += ' href=\"/CodeReviewMeeting/delete_member?idMember='+s.id+"\"";
-			trHTML += '><i class=\"fa fa-trash\"></i> Supprimer</a></td></tr>';	} );
+			trHTML += '> Supprimer</a></td></tr>';	} );
 
 		$('#memberstable').append(trHTML);
-		
 	}
 	else{
 	
