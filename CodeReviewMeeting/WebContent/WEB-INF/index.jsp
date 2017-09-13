@@ -156,18 +156,11 @@
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
-							<table>
-								<body>
-								<td>Chercher un utilisateur :</td>
-								<td nowrap><input type="text" id="donnees" name="donnees"
-									size="30" onkeyup="valider();"></td>
-									<td>
+                       <div class="input-group">
+  <input type="text" class="form-control" id="donnees" placeholder="Nom d'utilisateur" onkeyup="valider();" aria-describedby="sizing-addon2">
+</div>
 									<div id="validationMessage"></div>
-								</td>
-								
-</body>
 
-</table>
 
 <div class="row">
 	<div class="col-lg-12">

@@ -37,24 +37,10 @@ public class DashboardServlet extends HttpServlet {
 		Gson gson = new Gson();
 
 		if (valeur!= null) {
-			response.setContentType("text/xml");
-			response.setHeader("Cache-Control", "no-cache");
-			
-			if (valeur!="") {
-				List<Member> members= memberDAO.getMemberbyName(valeur);
-				if (members!=null && members.size()!=0) {				
-					response.getWriter().write(gson.toJson(members));
-					System.out.println(gson.toJson(members));
-					System.out.println(String.valueOf(members.size()));
-					
-				}
-				
-			}else {
-				response.getWriter().write("<message>" + gson.toJson(memberDAO.findAll()) + "</message>");	
-			}
-			
+			//prevents reload
+			//dashboard user search
+			searchUsers(response, valeur, gson);
 		
-			
 		}else {
 			List<Member> members = memberDAO.findAll();
 			List<Review> reviews = reviewDAO.findAll();
@@ -74,6 +60,22 @@ public class DashboardServlet extends HttpServlet {
 		}
 		
 		
+	}
+
+	private void searchUsers(HttpServletResponse response, String valeur, Gson gson) throws IOException {
+		response.setContentType("text/xml");
+		response.setHeader("Cache-Control", "no-cache");
+		
+		if (valeur!="") {
+			List<Member> members= memberDAO.getMemberbyName(valeur);
+			
+			if (members!=null && members.size()!=0) {				
+				response.getWriter().write(gson.toJson(members));
+			}
+			
+		}else {
+			response.getWriter().write("<message>" + gson.toJson(memberDAO.findAll()) + "</message>");	
+		}
 	}
 
 	private List<Promotion> displayPromotion() {
