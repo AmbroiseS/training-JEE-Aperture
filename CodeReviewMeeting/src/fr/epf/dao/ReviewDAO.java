@@ -28,7 +28,7 @@ public class ReviewDAO {
 		Date now = new Date();
 		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd");
 		String today = dateFormat.format(now);		
-		return (List<Review>) entityManager.createQuery("FROM Review WHERE reviewDateTime >='"+ today + "' ").getResultList();
+		return (List<Review>) entityManager.createQuery("FROM Review WHERE reviewDateTime >='"+ today + "' ORDER BY reviewDateTime").getResultList();
 		
 	}
 	
