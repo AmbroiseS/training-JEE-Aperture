@@ -16,17 +16,19 @@ public class Review {
 	private String reviewDateTime; 
 	private String reviewPromotion;
 	private String description;
-	
+	private String reviewer;
+
 	public Review() {
 		super();
 	}
 	
-	public Review(String reviewName, String reviewDateTime, String reviewPromotion, String description) {
+	public Review(String reviewName, String reviewDateTime, String reviewPromotion, String description, String reviewer) {
 		super();
 		this.reviewName = reviewName;
 		this.reviewDateTime = reviewDateTime;
 		this.reviewPromotion = reviewPromotion;
 		this.description = description;
+		this.reviewer = reviewer;
 	}
 	
 	public void setReviewName(String reviewName) {
@@ -67,5 +69,12 @@ public class Review {
 	public void setId(Long id) {
 		this.id = id;
 	}
-		
+
+	public String getReviewer() {
+		return reviewer;
+	}
+
+	public void setReviewer(String reviewer) {
+		this.reviewer = reviewer;
+	}
 }

@@ -50,13 +50,14 @@ public class AddEventServlet extends HttpServlet {
 	
 	private Review parseReview(HttpServletRequest req) {
 		String name = req.getParameter("name");
+		String reviewer = req.getParameter("reviewer");
 		String date = (String) req.getParameter("date") + " " + req.getParameter("time");
 		String promotion = req.getParameter("promotion");
 		String description = req.getParameter("description");
 		List<Member> promo = memberDAO.findManyByPromotion(promotion);
 		emailBean.sendEmail(name, date,description, promo);
 		
-		return new Review(name, date, promotion, description);
+		return new Review(name, date, promotion, description, reviewer);
 	}
 
 }

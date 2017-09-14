@@ -73,6 +73,10 @@
                                             <input type="text" class="input-lg form-control" id="name" name="name" placeholder="Nom">
                                         </div>
                                         <div class="form-group">
+                                            <label for="reviewer">Critique</label>
+                                            <input type="text" class="input-lg form-control" id="reviewer" name="reviewer" placeholder="Critique">
+                                        </div>
+                                        <div class="form-group">
                                             <label for="date">Date</label>
                                             <input type="date" class="input-lg form-control" id="date" name="date" placeholder="Date de l'évènement">
                                         </div>
