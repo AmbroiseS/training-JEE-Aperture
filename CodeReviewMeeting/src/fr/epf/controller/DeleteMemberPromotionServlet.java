@@ -25,7 +25,10 @@ public class DeleteMemberPromotionServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Long idMember= Long.valueOf(request.getParameter("idMember"));
 		memberDAO.deleteMemberPromotion(idMember);
-		response.sendRedirect("dashboard");
+		String idPromotion= Long.valueOf(request.getParameter("idPromotion")).toString();
+		String theURL = "http://localhost:8080/CodeReviewMeeting/show_member_promotion?idPromotion=" + idPromotion;
+		theURL = response.encodeRedirectURL(theURL);
+		response.sendRedirect(theURL);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
