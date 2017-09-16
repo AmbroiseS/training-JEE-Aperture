@@ -138,13 +138,13 @@
 			if(seconds>0){
 				seconds= seconds-1 ;
 			}else{
-				seconds = 60;
+				seconds = 59;
 				minutes= minutes-1;
 				if(minutes < 0 ){
-					minutes = 60;
+					minutes = 59;
 					hours --;
 					if(hours <0){
-						hours = 24;
+						hours = 23;
 						days --;
 						if(days == 0){
 							//to do reload next review or stop counter
