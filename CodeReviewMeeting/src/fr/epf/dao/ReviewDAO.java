@@ -26,7 +26,7 @@ public class ReviewDAO {
 	
 	public List<Review> findAll() {
 		Date now = new Date();
-		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String today = dateFormat.format(now);		
 		return (List<Review>) entityManager.createQuery("FROM Review WHERE reviewDateTime >='"+ today + "' ORDER BY reviewDateTime").getResultList();
 		
@@ -34,7 +34,7 @@ public class ReviewDAO {
 
 	public Review findNextByPromotion(String promotion) {
 		Date now = new Date();
-		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String today = dateFormat.format(now);	
 		return (Review) entityManager.createQuery("FROM Review WHERE reviewPromotion ='"+ promotion + "' AND reviewDateTime >='" + today +"' ORDER BY reviewDateTime").setMaxResults(1).getSingleResult();
 	}

@@ -18,10 +18,6 @@
 	src="/CodeReviewMeeting/js/jquery-3.1.1.min.js"></script>
 
 
-<script src="/CodeReviewMeeting/js/dashboard.js"></script>
-
-
-
 <!-- Bootstrap CSS -->
 <link href="/CodeReviewMeeting/css/bootstrap.min.css" rel="stylesheet">
 
@@ -121,7 +117,7 @@
 						hours = 23;						
 						days= days -1;
 							hours = 23;
-							if(days <0){
+							if(days <0 ){
 								console.log("hello");
 								location.href="http://localhost:8080/CodeReviewMeeting/counter_to_next_review";
 						}
