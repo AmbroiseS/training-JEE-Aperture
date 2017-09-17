@@ -89,7 +89,7 @@
 			diffMinutes --;			
 		}
 		if(diffMinutes < 0){
-			diffMinutes = 60 + diffMinutes;
+			diffMinutes = 61 + diffMinutes;
 			diffHours --;
 		}
 		if(diffHours < 0){
