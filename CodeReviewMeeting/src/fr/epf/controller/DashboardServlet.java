@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.gson.Gson;
-
 import fr.epf.dao.*;
 import fr.epf.models.*;
 
@@ -32,16 +30,7 @@ public class DashboardServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		String valeur = request.getParameter("valeur");
-		Gson gson = new Gson();
-
-		if (valeur!= null) {
-			//prevents reload
-			//dashboard user search
-			searchUsers(response, valeur, gson);
 		
-		}else {
 			List<Member> members = memberDAO.findAll();
 			List<Review> reviews = reviewDAO.findAll();
 
@@ -53,30 +42,14 @@ public class DashboardServlet extends HttpServlet {
 
 			request.setAttribute("reviews", reviews);
 			request.setAttribute("promotions", promotions);
-			request.setAttribute("members2", gson.toJson(members));
+			request.setAttribute("members", members);
 
 			
 			request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
-		}
 		
 		
 	}
 
-	private void searchUsers(HttpServletResponse response, String valeur, Gson gson) throws IOException {
-		response.setContentType("text/xml");
-		response.setHeader("Cache-Control", "no-cache");
-		
-		if (valeur!="") {
-			List<Member> members= memberDAO.getMemberbyName(valeur);
-			
-			if (members!=null && members.size()!=0) {				
-				response.getWriter().write(gson.toJson(members));
-			}
-			
-		}else {
-			response.getWriter().write("<message>" + gson.toJson(memberDAO.findAll()) + "</message>");	
-		}
-	}
 
 	private List<Promotion> displayPromotion() {
 		List<Promotion> promotions = promoDAO.findAll();
