@@ -39,38 +39,12 @@
 	<div id="wrapper">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top container-fluid"
-			role="navigation" style="margin-bottom: 0">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="/CodeReviewMeeting/dashboard">When
-					Is My Code Review?</a>
-			</div>
-			<!-- /.navbar-header -->
-
-			<ul class="nav navbar-top-links navbar-right">
-				<li class="dropdown"><a class="dropdown-toggle navlink"
-					data-toggle="dropdown" href="#"> <i class="fa fa-gear fa-fw"></i>
-						Gérer les code reviews <i class="fa fa-caret-down"></i>
-				</a>
-					<ul class="dropdown-menu dropdown-user">
-						<li><a href="/CodeReviewMeeting/add_promotion"><i
-								class="fa fa-users fa-fw"></i> Ajouter une promotion</a></li>
-						<li><a href="/CodeReviewMeeting/add_member"><i
-								class="fa fa-user fa-fw"></i> Ajouter un membre</a></li>
-						<li><a href="/CodeReviewMeeting/add_event"><i
-								class="fa fa-calendar fa-fw"></i> Créer un rendez-vous</a></li>
-					</ul></li>
-			</ul>
-		</nav>
-
+<%@ include file="menu.jsp" %>
 		<div id="page-wrapper" class="container-fluid">
-		<span id="countdown_days"></span> days <span id="countdown_hours"></span>:<span id="countdown_minutes"> </span>: <span id="countdown_seconds"></span>
+		<span class="countdown" id="countdown_days"></span>
+		<span class="countdown" id="countdown_hours"></span>
+		<span class="countdown" id="countdown_minutes"> </span>
+		 <span class="countdown" id="countdown_seconds"></span>
 		</div>
 		
 		<!-- /#page-wrapper -->
@@ -98,6 +72,8 @@
 	function init(nextReview)
 	{
 		var now = new Date();
+		console.log(now);
+		console.log(nextReview);
 		var nextReviewDate = new Date(nextReview);
 		
 		var timeDiff = Math.abs(nextReviewDate.getTime() - now.getTime());
@@ -112,7 +88,6 @@
 		var leftSeconds = leftMinutes -  (diffMinutes*1000);
 		var diffSeconds = Math.ceil(leftSeconds/ (60*1000) );
 		
-		console.log('Left: '+ diffDays + " days  "+ diffHours + " hours "+ diffMinutes);
 		if(diffSeconds <0){
 			diffSeconds = 60 + diffSeconds;
 			diffMinutes --;			
@@ -125,42 +100,72 @@
 			diffHours = 24 + diffHours;
 			diffDays --;
 		}
-		$('#countdown_days').html(diffDays);
-		$('#countdown_hours').html(diffHours);
-		$('#countdown_minutes').html(diffMinutes);
-		$('#countdown_seconds').html(diffSeconds);
+		display_seconds(diffSeconds);
+		display_minutes(diffMinutes);
+		display_hours(diffHours);
+		display_days(diffDays);
 		launchCountDown(diffDays, diffHours, diffMinutes, diffSeconds);
 		
 	};
 	
 	function launchCountDown(days, hours, minutes, seconds){
 		setInterval(function (){
-			if(seconds>0){
-				seconds= seconds-1 ;
-			}else{
+			seconds= seconds-1 ;
+			if(seconds <0){
 				seconds = 59;
-				minutes= minutes-1;
+				minutes= minutes -1;
 				if(minutes < 0 ){
-					minutes = 59;
-					hours --;
+					minutes = 59;										
+					hours = hours -1;
 					if(hours <0){
-						hours = 23;
-						days --;
-						if(days == 0){
-							//to do reload next review or stop counter
+						hours = 23;						
+						days= days -1;
+							hours = 23;
+							if(days <0){
+								console.log("hello");
+								location.href="http://localhost:8080/CodeReviewMeeting/counter_to_next_review";
 						}
+						display_days(days);
 					}
-				}
+					display_hours(hours);
+				}	
+				display_minutes(minutes);
 			}
+			display_seconds(seconds);
 			console.log(days + " days "+ " "+hours+ ":"+ minutes + ":"+ seconds);
-			$('#countdown_days').html(days);
-			$('#countdown_hours').html(hours);
-			$('#countdown_minutes').html(minutes);
-			$('#countdown_seconds').html(seconds);
-		}
 				
-				, 1000, days, hours, minutes, seconds);
+		}, 1000, days, hours, minutes, seconds);
 		
+	}
+	
+	function display_minutes(minutes){
+		if(minutes >= 10){
+			$('#countdown_minutes').html(minutes + ":");
+		}else{
+			$('#countdown_minutes').html("0"+minutes + ":");
+		}	
+	}
+	
+	function display_seconds(seconds){
+		if(seconds >= 10){
+			$('#countdown_seconds').html(seconds);
+		}else{
+			$('#countdown_seconds').html("0" +seconds);
+		}	
+	}
+	function display_hours(hours){
+		if(hours >= 10){
+			$('#countdown_hours').html(hours + ":");
+		}else{
+			$('#countdown_hours').html("0" +hours + ":");
+		}	
+	}
+	function display_days(days){
+		if(days > 0){
+			$('#countdown_days').html(days + " days  ");
+		}else{
+			$('#countdown_days').html("");
+		}	
 	}
 	
 
