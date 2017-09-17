@@ -73,7 +73,7 @@
                                             <input type="text" class="input-lg form-control" id="name" name="name" placeholder="Nom">
                                         </div>
                                         <div class="form-group">
-                                            <label for="reviewer">Critique</label>
+                                            <label for="reviewer">Animateur</label>
                                             <input type="text" class="input-lg form-control" id="reviewer" name="reviewer" placeholder="Critique">
                                         </div>
                                         <div class="form-group">
