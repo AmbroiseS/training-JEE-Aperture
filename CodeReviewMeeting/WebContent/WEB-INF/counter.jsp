@@ -46,13 +46,7 @@
 		<!-- /#page-wrapper -->
 	</div>
 	<!-- /#wrapper -->
-	<footer class="footer">
-		<div class="container">
-			<div class="row text-center">
-				<img src="/CodeReviewMeeting/img/ebusiness.png" class="logo" alt="">
-			</div>
-		</div>
-	</footer>
+<%@ include file="footer.jsp" %>
 
 
 	<!-- Bootstrap Core JavaScript -->
