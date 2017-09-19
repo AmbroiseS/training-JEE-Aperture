@@ -45,6 +45,7 @@
 				<label for="promotion">Promotion</label> <label for="promotion">Promotion</label>
 				<select class="input-lg form-control" name="promotion"
 					id="promotion" onchange="myform.submit();">
+					<option disabled selected value> -- select an option -- </option>
 					<c:forEach var="promotion" items="${promotions}">
 						<option ${promotion.name == selectedPromotion ? 'selected' : ''}>
                          	${promotion.name}
@@ -70,6 +71,7 @@
 	<!--  Others -->
 	<script> 
 	window.onload=init("${nextReview.reviewDateTime}", "${promotion}");
+
 	function init(nextReview, promo)
 	{
 		var now = new Date();

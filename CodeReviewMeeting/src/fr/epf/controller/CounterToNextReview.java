@@ -32,7 +32,7 @@ public class CounterToNextReview extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	String promotion = (String) request.getParameter("promotion");
+	String promotion = (String) request.getParameter("selectedPromotion");
 		try {
 			Review nextReview = reviewDAO.findNextByPromotion(promotion);
 			request.setAttribute("nextReview", nextReview);
@@ -44,7 +44,6 @@ public class CounterToNextReview extends HttpServlet {
 		request.getRequestDispatcher("/WEB-INF/counter.jsp").forward(request, response);
 	}
 
-
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		String promotion = (String) request.getParameter("promotion");
 		try {
@@ -52,7 +51,7 @@ public class CounterToNextReview extends HttpServlet {
 			request.setAttribute("nextReview", nextReview);
 		}catch(EJBException e) {
 		}
-		request.setAttribute("promotion", promotion);
+		request.setAttribute("selectedPromotion", promotion);
       	doGet(request, response);
 	}
 
