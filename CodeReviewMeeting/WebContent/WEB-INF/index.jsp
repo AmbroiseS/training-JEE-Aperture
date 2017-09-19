@@ -15,6 +15,34 @@
 	
 </head>
 
+<!-- jQuery -->
+<script type='text/javascript' src="/CodeReviewMeeting/js/jquery-3.1.1.min.js"></script>
+
+
+<!-- Bootstrap CSS -->
+<link href="/CodeReviewMeeting/css/bootstrap.min.css" rel="stylesheet">
+
+
+	<!-- Custom CSS -->
+<link href="/CodeReviewMeeting/css/style.css" rel="stylesheet">
+	
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
+
+<!--  Bootstrap add-on JavaScript -->
+<script src="/CodeReviewMeeting/js/bootstrap-confirmation.js"></script>
+
+<!--  Others -->
+<script src="/CodeReviewMeeting/js/dashboard.js"></script>
+
+
+<!-- Custom Fonts -->
+<link
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+	rel="stylesheet" type="text/css">
+		
+
 <body>
 
 	<div id="wrapper">
@@ -108,6 +136,14 @@
 						</div>
 						<!-- /.panel-heading -->
 						<div class="panel-body">
+						
+						                       <div class="input-group">
+  <input type="text" class="form-control" id="donnees" placeholder="Nom d'utilisateur" onkeyup="valider();" aria-describedby="sizing-addon2">
+</div>
+									<div id="validationMessage"></div>
+
+
+						
                       <div class="row">
 	<div class="col-lg-12">
 
@@ -123,25 +159,24 @@
 				</thead>
 				
 				<tbody id"tablebody">
+								<script type="text/javascript">
+					var members2 = <%=request.getAttribute("members2")%>;
+				    displayMembers(members2,0);
+				</script>
 				
-				<c:forEach var="member" items="${members}">
-						<tr>
-							<td>${member.name}</td>
-							<td>${member.email}</td>
-							<td>${member.promotion}</td>
-							<td class="text-right">
-							
-							 <a href="/CodeReviewMeeting/modify_member?idUser=${member.id }"
-			   class= "btn btn-sm btn-warning fa fa-pencil"> Modifier</a>
-			<a class="btn btn-sm btn-danger fa fa-trash" data-toggle="confirmation"
-			 href="/CodeReviewMeeting/delete_member?idMember=${member.id }"> Supprimer</a></td>
-					
-						</tr>
-					</c:forEach>
+			
 				
 				</tbody>
+				
+				
+				
 			</table>
-		</div>
+				<div class="text-center">
+				<ul class="pagination" id="pagination">
+					
+				</ul>
+			</div>
+				</div>
 		<!-- /.table-responsive -->
 	</div>
 </div>
@@ -216,40 +251,7 @@
 <!-- /#wrapper -->
 <%@ include file="footer.jsp" %>
 
-<!-- jQuery -->
-<script type='text/javascript' src="/CodeReviewMeeting/js/jquery-3.1.1.min.js"></script>
 
-
-<!-- Bootstrap CSS -->
-<link href="/CodeReviewMeeting/css/bootstrap.min.css" rel="stylesheet">
-
-
-<!-- Datatables CSS  -->
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.css"/>
-
-	<!-- Custom CSS -->
-<link href="/CodeReviewMeeting/css/style.css" rel="stylesheet">
-
-
- <!-- DataTables JS -->
-<script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.16/datatables.min.js"></script>
-	
-
-<!-- Bootstrap Core JavaScript -->
-<script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
-
-<!--  Bootstrap add-on JavaScript -->
-<script src="/CodeReviewMeeting/js/bootstrap-confirmation.js"></script>
-
-<!--  Others -->
-<script src="/CodeReviewMeeting/js/dashboard.js"></script>
-
-
-<!-- Custom Fonts -->
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
-		
 
 </body>
 

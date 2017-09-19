@@ -69,11 +69,7 @@ body .panel-scroll{
     body .footer .logo {
       height: 40px; }
       
-      table.dataTable thead .sorting, 
-table.dataTable thead .sorting_asc, 
-table.dataTable thead .sorting_desc {
-    background : none;
-}
+  
 
 /*# sourceMappingURL=style.css.map */
 
