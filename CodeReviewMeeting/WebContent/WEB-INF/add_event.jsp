@@ -97,6 +97,11 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/CodeReviewMeeting/js/bootstrap.min.js"></script>
+    <script> 
+    if( "${error}" + "" != ""){
+    	alert("${error}");
+    }
+    </script>
 
 </body>
 

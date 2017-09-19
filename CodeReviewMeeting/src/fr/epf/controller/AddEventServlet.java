@@ -1,6 +1,7 @@
 package fr.epf.controller;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -43,20 +44,27 @@ public class AddEventServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
-		Review review = parseReview(req);	
-		reviewDAO.save(review);
-		resp.sendRedirect("dashboard");
+		Review review = parseReview(req);
+		List<Review> otherReviews= reviewDAO.checkSlotAvailability(review.getReviewPromotion(), review.getReviewDateTime(), 2);
+		if(otherReviews.size() >0) {
+			
+			req.setAttribute("error", "Impossible de créer la revue, la promotion à déjà une revue sur ce créneau.");		
+		}else {
+			List<Member> promo = memberDAO.findManyByPromotion(review.getReviewPromotion());
+			emailBean.sendEmail(review.getReviewName(), review.getReviewDateTime(),review.getDescription(), promo);	
+			reviewDAO.save(review);
+			resp.sendRedirect("dashboard");	
+			req.getRequestDispatcher("/WEB-INF/add_event.jsp").forward(req, resp);			
+		}
+		
 	}
 	
 	private Review parseReview(HttpServletRequest req) {
 		String name = req.getParameter("name");
 		String reviewer = req.getParameter("reviewer");
-		String date = (String) req.getParameter("date") + " " + req.getParameter("time");
+		String date = (String) req.getParameter("date") + " " + req.getParameter("time") + ":00";
 		String promotion = req.getParameter("promotion");
-		String description = req.getParameter("description");
-		List<Member> promo = memberDAO.findManyByPromotion(promotion);
-		emailBean.sendEmail(name, date,description, promo);
-		
+		String description = req.getParameter("description");		
 		return new Review(name, date, promotion, description, reviewer);
 	}
 
