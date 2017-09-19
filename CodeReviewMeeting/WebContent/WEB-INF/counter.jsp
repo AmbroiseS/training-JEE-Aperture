@@ -35,18 +35,29 @@
 	<div id="wrapper">
 
 		<!-- Navigation -->
-<%@ include file="menu.jsp" %>
+		<%@ include file="menu.jsp"%>
 		<div id="page-wrapper" class="container-fluid">
-		<span class="countdown" id="countdown_days"></span>
-		<span class="countdown" id="countdown_hours"></span>
-		<span class="countdown" id="countdown_minutes"> </span>
-		 <span class="countdown" id="countdown_seconds"></span>
+			<span class="countdown" id="countdown_days"></span> <span
+				class="countdown" id="countdown_hours"></span> <span
+				class="countdown" id="countdown_minutes"> </span> <span
+				class="countdown" id="countdown_seconds"></span>
+			<form action="" method="post" id="myform" id="myform">
+				<label for="promotion">Promotion</label> <label for="promotion">Promotion</label>
+				<select class="input-lg form-control" name="promotion"
+					id="promotion" onchange="myform.submit();">
+					<c:forEach var="promotion" items="${promotions}">
+						<option ${promotion.name == selectedPromotion ? 'selected' : ''}>
+                         	${promotion.name}
+                         </option>
+					</c:forEach>
+				</select>
+			</form>
 		</div>
-		
+
 		<!-- /#page-wrapper -->
 	</div>
 	<!-- /#wrapper -->
-<%@ include file="footer.jsp" %>
+	<%@ include file="footer.jsp"%>
 
 
 	<!-- Bootstrap Core JavaScript -->
@@ -58,12 +69,13 @@
 
 	<!--  Others -->
 	<script> 
-	window.onload=init("${nextReview.reviewDateTime}");
-	function init(nextReview)
+	window.onload=init("${nextReview.reviewDateTime}", "${promotion}");
+	function init(nextReview, promo)
 	{
 		var now = new Date();
 		console.log(now);
 		console.log(nextReview);
+		console.log(promo);
 		var nextReviewDate = new Date(nextReview);
 		
 		var timeDiff = Math.abs(nextReviewDate.getTime() - now.getTime());
