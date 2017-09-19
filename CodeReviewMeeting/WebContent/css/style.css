@@ -47,13 +47,19 @@ body {
     body .panel-yellow .panel-heading {
       color: white;
       background-color: #E5AD1A; }
+  body .panel-red {
+    border-color: #6d2526; }
+    body .panel-red .panel-heading {
+      color: white;
+      background-color: #bf5159; }
 body .panel-scroll{
 	overflow-y: auto;
 	height: auto;
-	max-height:300px;
-
-      
+	max-height:300px;    
       }
+      
+  .spaced{
+  padding: 1em;}    
   body .footer {
     bottom: 0;
     width: 100%;

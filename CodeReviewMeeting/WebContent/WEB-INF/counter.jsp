@@ -37,22 +37,48 @@
 		<!-- Navigation -->
 		<%@ include file="menu.jsp"%>
 		<div id="page-wrapper" class="container-fluid">
-			<span class="countdown" id="countdown_days"></span> <span
-				class="countdown" id="countdown_hours"></span> <span
-				class="countdown" id="countdown_minutes"> </span> <span
-				class="countdown" id="countdown_seconds"></span>
-			<form action="" method="post" id="myform" id="myform">
-				<label for="promotion">Promotion</label> 
-				<select class="input-lg form-control" name="promotion"
-					id="promotion" onchange="myform.submit();">
-					<option disabled selected value> -- select an option -- </option>
-					<c:forEach var="promotion" items="${promotions}">
-						<option ${promotion.name == selectedPromotion ? 'selected' : ''}>
-                         	${promotion.name}
-                         </option>
-					</c:forEach>
-				</select>
-			</form>
+			
+			<div class="row">
+			<br/>
+				<div class="col-lg-10 col-lg-offset-1">
+					<div class="panel panel-red">
+						<div class="panel-heading">
+							<div class="huge-label text-center  spaced">
+								<span class="countdown" id="countdown_days"></span> <span
+									class="countdown" id="countdown_hours"></span> <span
+									class="countdown" id="countdown_minutes"> </span> <span
+									class="countdown" id="countdown_seconds"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 col-lg-offset-1">
+					<!-- /.panel -->
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<div class="row">
+								<div class="col-xs-12">
+
+									<form action="" method="post" id="myform" id="myform">
+										<label for="promotion">Promotion</label> <select
+											class="input-lg form-control" name="promotion" id="promotion"
+											onchange="myform.submit();">
+											<option disabled selected value> -- select an option -- </option>
+											<c:forEach var="promotion" items="${promotions}">
+												<option ${promotion.name == selectedPromotion ? 'selected' : ''}>
+                         							${promotion.name}
+                         						</option>
+											</c:forEach>
+										</select>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<!-- /#page-wrapper -->
