@@ -46,15 +46,14 @@ public class AddEventServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		Review review = parseReview(req);
 		List<Review> otherReviews= reviewDAO.checkSlotAvailability(review.getReviewPromotion(), review.getReviewDateTime(), 2);
-		if(otherReviews.size() >0) {
-			
+		if(otherReviews.size() >0) {			
 			req.setAttribute("error", "Impossible de créer la revue, la promotion à déjà une revue sur ce créneau.");		
+			req.getRequestDispatcher("/WEB-INF/add_event.jsp").forward(req, resp);	
 		}else {
 			List<Member> promo = memberDAO.findManyByPromotion(review.getReviewPromotion());
 			emailBean.sendEmail(review.getReviewName(), review.getReviewDateTime(),review.getDescription(), promo);	
 			reviewDAO.save(review);
-			resp.sendRedirect("dashboard");	
-			req.getRequestDispatcher("/WEB-INF/add_event.jsp").forward(req, resp);			
+			resp.sendRedirect("dashboard");			
 		}
 		
 	}
