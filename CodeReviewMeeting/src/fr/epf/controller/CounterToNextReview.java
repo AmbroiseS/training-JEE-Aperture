@@ -18,7 +18,7 @@ import fr.epf.dao.ReviewDAO;
 import fr.epf.models.Promotion;
 import fr.epf.models.Review;
 
-@WebServlet("/counter_to_next_review")
+@WebServlet("/countdown")
 public class CounterToNextReview extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -40,7 +40,6 @@ public class CounterToNextReview extends HttpServlet {
 		}
 		List<Promotion> promotions = promoDAO.findAll();
 		request.setAttribute("promotions", promotions);
-		request.setAttribute("selectedPromotion", promotion);
 		request.getRequestDispatcher("/WEB-INF/counter.jsp").forward(request, response);
 	}
 

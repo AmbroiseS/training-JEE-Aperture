@@ -42,7 +42,7 @@
 				class="countdown" id="countdown_minutes"> </span> <span
 				class="countdown" id="countdown_seconds"></span>
 			<form action="" method="post" id="myform" id="myform">
-				<label for="promotion">Promotion</label> <label for="promotion">Promotion</label>
+				<label for="promotion">Promotion</label> 
 				<select class="input-lg form-control" name="promotion"
 					id="promotion" onchange="myform.submit();">
 					<option disabled selected value> -- select an option -- </option>
@@ -70,14 +70,23 @@
 
 	<!--  Others -->
 	<script> 
-	window.onload=init("${nextReview.reviewDateTime}", "${promotion}");
+	window.onload=init("${nextReview.reviewDateTime}", "${selectedPromotion}");
 
-	function init(nextReview, promo)
-	{
+	function init(nextReview, promo){
+		if(promo == ""){
+			$('#countdown_days').html("Please select a promotion");						
+		}else{
+			if(nextReview == ""){
+				$('#countdown_days').html("No review scheduled");				
+			}else{
+				prepareCountDown(nextReview, promo);
+			}			
+		}		
+	};
+
+
+	function prepareCountDown(nextReview, promo){
 		var now = new Date();
-		console.log(now);
-		console.log(nextReview);
-		console.log(promo);
 		var nextReviewDate = new Date(nextReview);
 		
 		var timeDiff = Math.abs(nextReviewDate.getTime() - now.getTime());
@@ -109,12 +118,11 @@
 		display_hours(diffHours);
 		display_days(diffDays);
 		launchCountDown(diffDays, diffHours, diffMinutes, diffSeconds);
-		
-	};
+	}
 	
 	function launchCountDown(days, hours, minutes, seconds){
 		setInterval(function (){
-			seconds= seconds-1 ;
+			seconds = seconds-1 ;
 			if(seconds <0){
 				seconds = 59;
 				minutes= minutes -1;
@@ -126,7 +134,6 @@
 						days= days -1;
 							hours = 23;
 							if(days <0 ){
-								console.log("hello");
 								location.href="http://localhost:8080/CodeReviewMeeting/counter_to_next_review";
 						}
 						display_days(days);
