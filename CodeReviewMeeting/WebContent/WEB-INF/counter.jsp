@@ -40,21 +40,26 @@
 			
 			<div class="row">
 			<br/>
-				<div class="col-lg-10 col-lg-offset-1">
+				<div class="col-lg-8 col-lg-offset-2">
 					<div class="panel panel-red">
 						<div class="panel-heading">
+			<div class="col-xs-3">
+									<i class="fa fa-clock-o fa-5x"></i>
+								</div>
 							<div class="huge-label text-center  spaced">
+							
 								<span class="countdown" id="countdown_days"></span> <span
 									class="countdown" id="countdown_hours"></span> <span
 									class="countdown" id="countdown_minutes"> </span> <span
 									class="countdown" id="countdown_seconds"></span>
 							</div>
 						</div>
+						
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-10 col-lg-offset-1">
+				<div class="col-lg-8 col-lg-offset-2">
 					<!-- /.panel -->
 					<div class="panel panel-default">
 						<div class="panel-body">
