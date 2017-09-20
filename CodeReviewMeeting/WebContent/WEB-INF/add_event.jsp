@@ -71,6 +71,7 @@
                                         </div>
 
                                         <div class="text-right">
+                                        Un email sera envoyé à chacun des membres de la promotion &nbsp&nbsp         
                                             <button type="submit" class="btn btn-lg btn-primary">Enregistrer</button>
                                         </div>
                                     </form>
