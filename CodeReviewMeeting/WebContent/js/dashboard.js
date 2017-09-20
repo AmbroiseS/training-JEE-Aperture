@@ -90,7 +90,7 @@ function paginate(npages){
 	    $('li').click(function(event) {  
 	        $('#memberstable').find('#tablebody tr>td').hide();  
 	        var nBegin = ($(this).text() - 1) * recordPerPage;  
-	        var nEnd = $(this).text() * recordPerPage - 1; 
+	        var nEnd = $(this).text() * recordPerPage; 
 	        
 	        for (var i = nBegin; i != nEnd; i++)   {   
 	            $(tr[i]).show();  
@@ -98,7 +98,7 @@ function paginate(npages){
 	    });
 	    $('#memberstable').find('#tablebody tr>td').hide();
 	    var nBegin = 0;  
-        var nEnd = recordPerPage-1; 
+        var nEnd = recordPerPage; 
         for (var i = nBegin; i != nEnd; i++)   {   
             $(tr[i]).show();  
         } 
