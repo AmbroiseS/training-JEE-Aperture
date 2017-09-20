@@ -146,9 +146,8 @@
 						
                       <div class="row">
 	<div class="col-lg-12">
-
-		<div class="table-responsive">
-			<table class="table table-hover table-striped" id="memberstable">
+				<div class="table-responsive">
+			<table  class="table table-hover table-striped" id="memberstable">
 				<thead>
 					<tr>
 						<th>Nom</th>
@@ -158,27 +157,19 @@
 					</tr>
 				</thead>
 				
-				<tbody id"tablebody">
-								<script type="text/javascript">
-					var members2 = <%=request.getAttribute("members2")%>;
-				    displayMembers(members2,0);
-				</script>
-				
-			
-				
+				<tbody id="tablebody">
+								
 				</tbody>
-				
-				
-				
+				<tfoot></tfoot>
 			</table>
-				<div class="text-center">
-				<ul class="pagination" id="pagination">
+				<div class="text-center"  >
+				<ul class="pagination" id="pagination" >
 					
 				</ul>
 			</div>
-				</div>
+			</div>
 		<!-- /.table-responsive -->
-	</div>
+			</div>
 </div>
 <!-- /.row -->
 </div>
@@ -251,7 +242,10 @@
 <!-- /#wrapper -->
 <%@ include file="footer.jsp" %>
 
-
+<script type="text/javascript">
+					var members2 = <%=request.getAttribute("members2")%>;
+				    displayMembers(members2,0);
+				</script>
 
 </body>
 

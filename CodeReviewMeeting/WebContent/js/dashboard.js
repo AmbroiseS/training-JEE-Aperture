@@ -45,7 +45,6 @@ function displayMembers(data,from){
 		//empty table
 		$("#memberstable tr>td").remove();
 		
-		var k=10;
 		
 		//fill table	
 		for (var i=0; i!=array.length; i++){
@@ -59,30 +58,10 @@ function displayMembers(data,from){
 				trHTML += ' href=\"/CodeReviewMeeting/delete_member?idMember='+array[i].id+"\"";
 				trHTML += '> Supprimer</a></td></tr>';
 				
-				if (i/k===1) {
-					trPagin="<li><a href=\"#\">1</a></li>";
-					
-					$('#pagination').append(trPagin);
-					
-					
-				}
 			
 		}
-		/*array.forEach( function(s) { 
-		    trHTML += '<tr><td>' + s.name + '</td><td>' + s.email + '</td>+<td>' + s.promotion + '</td>';
-		    trHTML += '<td ' + 'class=\"text-right\">';
-		    trHTML += '<a href=\"/CodeReviewMeeting/modify_member?idUser='+s.id+"\"";
-			trHTML += ' class=\"btn btn-sm btn-warning fa fa-pencil\"> Modifier</a>';
-			trHTML += '<a> </a>';
-			trHTML += '<a class=\"btn btn-sm btn-danger fa fa-trash\" data-toggle=\"confirmation\"';
-			trHTML += ' href=\"/CodeReviewMeeting/delete_member?idMember='+s.id+"\"";
-			trHTML += '> Supprimer</a></td></tr>';	} );*/
-
 		$('#memberstable').append(trHTML);
-//		
-//		<li><a href="#">1</a></li>
-//		<li><a href="#">2</a></li>
-//		<li><a href="#">3</a></li>
+		paginate(Math.ceil(array.length / 10));	
 	}
 	else{
 	
@@ -91,6 +70,40 @@ function displayMembers(data,from){
 		$("#memberstable tr>td").remove();
 		
 	}
+}
+
+function paginate(npages){
+	    var recordPerPage = 40; 
+	    var totalPages = npages; 
+	    
+		$("#pagination li").remove();
+
+	    for (i = 0; i!=totalPages; i++) {  
+	    	$('#pagination').append('<li><a>'+(i+1)+'</a></li>');
+	    }   
+	 	    
+	    $('memberstable').find('#tablebody tr>td').hide(); 
+	    var tr = $('#tablebody tr>td'); 
+	    for (var i = 0; i != recordPerPage - 1; i++) {   
+	        $(tr[i]).show(); 
+	    } 
+	    $('li').click(function(event) {  
+	        $('#memberstable').find('#tablebody tr>td').hide();  
+	        var nBegin = ($(this).text() - 1) * recordPerPage;  
+	        var nEnd = $(this).text() * recordPerPage - 1; 
+	        
+	        for (var i = nBegin; i != nEnd; i++)   {   
+	            $(tr[i]).show();  
+	        } 
+	    });
+	    $('#memberstable').find('#tablebody tr>td').hide();
+	    var nBegin = 0;  
+        var nEnd = recordPerPage-1; 
+        for (var i = nBegin; i != nEnd; i++)   {   
+            $(tr[i]).show();  
+        } 
+	
+	
 }
 
 
