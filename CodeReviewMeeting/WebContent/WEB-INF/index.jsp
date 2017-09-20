@@ -200,6 +200,8 @@
 			</div>
 			<br /> <a href="/CodeReviewMeeting/add_event"
 				class="btn btn-default btn-block">Programmer une code review</a>
+				<a href="/CodeReviewMeeting/countdown"
+				class="btn btn-default btn-block">Afficher un compte à rebours</a>
 		</div>
 		<!-- /.panel-body -->
 	</div>
@@ -232,6 +234,8 @@
 		<!-- /.panel-body -->
 	</div>
 	<!-- /.panel -->
+	
+	
 </div>
 <!-- /.col-lg-4 -->
 </div>
