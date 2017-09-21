@@ -35,7 +35,6 @@ public class AddEventServlet extends HttpServlet {
 	@Inject
 	private MemberDAO memberDAO;
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Promotion> promotions = promoDAO.findAll();
 		request.setAttribute("promotions", promotions);
@@ -54,8 +53,7 @@ public class AddEventServlet extends HttpServlet {
 			emailBean.sendEmail(review.getReviewName(), review.getReviewDateTime(),review.getDescription(), promo);	
 			reviewDAO.save(review);
 			resp.sendRedirect("dashboard");			
-		}
-		
+		}		
 	}
 	
 	private Review parseReview(HttpServletRequest req) {
@@ -66,5 +64,4 @@ public class AddEventServlet extends HttpServlet {
 		String description = req.getParameter("description");		
 		return new Review(name, date, promotion, description, reviewer);
 	}
-
 }

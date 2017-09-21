@@ -41,8 +41,20 @@ public class ReviewDAO {
 		return (Review) entityManager.createQuery("FROM Review WHERE reviewPromotion ='"+ promotion + "' AND reviewDateTime >='" + today +"' ORDER BY reviewDateTime").setMaxResults(1).getSingleResult();
 	}
 	
-	@SuppressWarnings("deprecation")
 	public List<Review> checkSlotAvailability(String promotion, String date, int duration){
+		String[] slot = createSlot(date, duration);
+		return (List<Review>) entityManager.createQuery("FROM Review WHERE reviewPromotion ='"+ promotion + "' AND reviewDateTime >'" + slot[0] +"' AND reviewDateTime <'" + slot[1] + "' ORDER BY reviewDateTime").getResultList();
+	
+	}
+	
+	public List<Review> checkReviewerAvailability(String reviewer, String date, int duration){
+		String[] slot = createSlot(date, duration);
+		return (List<Review>) entityManager.createQuery("FROM Review WHERE reviewer ='"+ reviewer + "' AND reviewDateTime >'" + slot[0] +"' AND reviewDateTime <'" + slot[1] + "' ORDER BY reviewDateTime").getResultList();
+	
+	}
+	
+	public String[] createSlot(String date, int duration) {
+		String[] slot = new String[2];
 		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		Date reviewDate = null;
 		try {
@@ -59,12 +71,10 @@ public class ReviewDAO {
 		Date upperSlot = cal.getTime();
 
 		//format dates to compare with database
-		String before = dateFormat.format(lowerSlot);
-		String after = dateFormat.format(upperSlot);
-		//get result list
-
-		return (List<Review>) entityManager.createQuery("FROM Review WHERE reviewPromotion ='"+ promotion + "' AND reviewDateTime >'" + before +"' AND reviewDateTime <'" + after + "' ORDER BY reviewDateTime").getResultList();
-	
+		slot[0] = dateFormat.format(lowerSlot);
+		slot[1] = dateFormat.format(upperSlot);
+		
+		return slot;
 	}
 	
 	
