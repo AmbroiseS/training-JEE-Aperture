@@ -7,23 +7,7 @@
 			}else{
 				prepareCountDown(nextReview, promo);
 			}			
-		}
-		
-		$('#calendar').fullCalendar({
-			header: {
-        		left: 'prev,today,next',
-        		center: 'title',
-        		right: 'agendaDay,agendaWeek,month',
-        	},
-        	 events:[ {
- 	            title: "Next Review",
- 	            start: nextReview,
- 	            color:"#bf5159",
- 	            textColor: "white"
- 		 }],
-        	defaultView: 'month',
-            scrollTime: "08:00"
-		});
+		}		
 	};
 
 

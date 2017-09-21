@@ -30,9 +30,6 @@
 	rel="stylesheet" type="text/css">
 </head>
 
-
-    	<link rel='stylesheet' href='/CodeReviewMeeting/lib/pluginCalendar/fullcalendar.css' /> 
-
 <body>
 
 	<div id="wrapper">
@@ -40,24 +37,24 @@
 		<!-- Navigation -->
 		<%@ include file="menu.jsp"%>
 		<div id="page-wrapper" class="container-fluid">
-			
+
 			<div class="row">
-			<br/>
+				<br />
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="panel panel-red">
 						<div class="panel-heading">
-			<div class="col-xs-3">
-									<i class="fa fa-clock-o fa-5x"></i>
+							<div class="col-xs-3">
+								<i class="fa fa-clock-o fa-5x"></i>
+							</div>
+							<div class="huge-label text-center spaced">
+								<div class="fa-5x">
+									<span class="countdown" id="countdown_days"></span><span
+										class="countdown" id="countdown_hours"></span><span
+										class="countdown" id="countdown_minutes"></span><span
+										class="countdown" id="countdown_seconds"></span>
 								</div>
-							<div class="huge-label text-center  spaced">
-							
-								<span class="countdown" id="countdown_days"></span> <span
-									class="countdown" id="countdown_hours"></span> <span
-									class="countdown" id="countdown_minutes"> </span> <span
-									class="countdown" id="countdown_seconds"></span>
 							</div>
 						</div>
-						
 					</div>
 				</div>
 			</div>
@@ -75,7 +72,8 @@
 											onchange="myform.submit();">
 											<option disabled selected value> -- select an option -- </option>
 											<c:forEach var="promotion" items="${promotions}">
-												<option ${promotion.name == selectedPromotion ? 'selected' : ''}>
+												<option
+													${promotion.name == selectedPromotion ? 'selected' : ''}>
                          							${promotion.name}
                          						</option>
 											</c:forEach>
@@ -86,7 +84,7 @@
 						</div>
 					</div>
 					<div id='calendar' style="width: 100%"></div>
-					<br/>
+					<br />
 				</div>
 			</div>
 		</div>
@@ -103,16 +101,13 @@
 	<!--  Bootstrap add-on JavaScript -->
 
 	<script src="/CodeReviewMeeting/js/bootstrap-confirmation.js"></script>
-	
 
-	<!--  CALENDAR -->
-    <script src='/CodeReviewMeeting/lib/pluginCalendar/lib/moment.min.js'></script>
-	<script src='/CodeReviewMeeting/lib/pluginCalendar/fullcalendar.js'></script>
-	<script src='/CodeReviewMeeting/lib/pluginCalendar/fr.js'></script>
+
+	<!--  other -->	
 	<script src="/CodeReviewMeeting/js/countdown.js"></script>
 	<script> 
 	$( document ).ready(function() {
-		init("${nextReview.reviewDateTime}", "${selectedPromotion}");
+		init("${nextReview.reviewDateTime}", "${selectedPromotion}");		
 	});
 	</script>
 
