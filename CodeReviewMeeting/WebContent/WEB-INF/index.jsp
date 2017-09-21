@@ -188,7 +188,7 @@
 				<table class="table table-hover table-striped">
 
 					<c:forEach var="review" items="${reviews}">
-						<tr>
+						<tr href="#" data-toggle="popover" title="${review.reviewName} animé par   ${review.reviewer}" data-content="Résumé : ${review.description}" data-placement="bottom">
 							<td>${review.reviewName}</td>
 							<td>${review.reviewPromotion}</td>
 							<td class="text-right"><span class="text-muted small">${review.reviewDateTime}

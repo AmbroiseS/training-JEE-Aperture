@@ -1,4 +1,6 @@
 $(document).ready(function() {
+	//activate popover
+	$('[data-toggle="popover"]').popover();
 	//activate toggle confirmation
 	$('[data-toggle="confirmation"]').confirmation({
 	    href: function(elem){
