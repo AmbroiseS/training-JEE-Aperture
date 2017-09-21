@@ -44,15 +44,24 @@ public class AddEventServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {		
 		Review review = parseReview(req);
-		List<Review> otherReviews= reviewDAO.checkSlotAvailability(review.getReviewPromotion(), review.getReviewDateTime(), 2);
-		if(otherReviews.size() >0) {			
-			req.setAttribute("error", "Impossible de créer la revue, la promotion à déjà une revue sur ce créneau.");		
+		List<Review> promotionReviews= reviewDAO.checkSlotAvailability(review.getReviewPromotion(), review.getReviewDateTime(), 2); 
+		List<Review> reviewerReviews= reviewDAO.checkReviewerAvailability(review.getReviewer(), review.getReviewDateTime(), 2); 		
+		//check promotion availability 
+		if(promotionReviews.size() >0) {
+			req.setAttribute("error", "Impossible de créer la revue, la promotion a déjà une revue sur ce créneau.");		
 			req.getRequestDispatcher("/WEB-INF/add_event.jsp").forward(req, resp);	
 		}else {
+			//check reviewer availability
+			if(reviewerReviews.size() >0) {
+				req.setAttribute("error", "Impossible de créer la revue, l'animateur a déjà une revue sur ce créneau.");		
+				req.getRequestDispatcher("/WEB-INF/add_event.jsp").forward(req, resp);				
+			}else {
+			//get emails adress and send emails to all member of the promotion
 			List<Member> promo = memberDAO.findManyByPromotion(review.getReviewPromotion());
 			emailBean.sendEmail(review.getReviewName(), review.getReviewDateTime(),review.getDescription(), promo);	
 			reviewDAO.save(review);
-			resp.sendRedirect("dashboard");			
+			resp.sendRedirect("dashboard");	
+			}	
 		}		
 	}
 	
