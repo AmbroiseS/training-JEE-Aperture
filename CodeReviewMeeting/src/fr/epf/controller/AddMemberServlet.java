@@ -38,6 +38,7 @@ public class AddMemberServlet extends HttpServlet {
 		resp.sendRedirect("dashboard");
 	}
 	
+	//parse request information to instatiate corresponding Member Object
 	private Member parseMember(HttpServletRequest req) {
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");

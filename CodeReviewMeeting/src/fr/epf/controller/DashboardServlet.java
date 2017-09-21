@@ -49,12 +49,7 @@ public class DashboardServlet extends HttpServlet {
 		
 			List<Member> members = memberDAO.findAll();
 			List<Review> reviews = reviewDAO.findAll();
-
 			List<Promotion> promotions = displayPromotion();
-
-			request.setAttribute("counterMember", "" + members.size());
-			request.setAttribute("counterPromo", "" + promotions.size());
-			request.setAttribute("counterReview", "" + reviews.size());
 
 			request.setAttribute("reviews", reviews);
 			request.setAttribute("promotions", promotions);

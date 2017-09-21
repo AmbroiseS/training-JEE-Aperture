@@ -66,16 +66,22 @@
 		setInterval(function (){
 			seconds = seconds-1 ;
 			if(seconds <0){
+				//reset seconds and decrement minutes
 				seconds = 59;
 				minutes= minutes -1;
+				
 				if(minutes < 0 ){
+					//reset minutes and decrement hours
 					minutes = 59;										
 					hours = hours -1;
+					
 					if(hours <0){
+						//reset hours and decrement days
 						hours = 23;						
 						days= days -1;
 							hours = 23;
 							if(days <0 ){
+								//load next review
 								location.href="http://localhost:8080/CodeReviewMeeting/counter_to_next_review";
 						}
 						display_days(days);

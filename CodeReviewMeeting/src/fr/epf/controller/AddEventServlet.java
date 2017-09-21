@@ -71,6 +71,7 @@ public class AddEventServlet extends HttpServlet {
 		}		
 	}
 	
+	//parse request information to instatiate corresponding Review Object
 	private Review parseReview(HttpServletRequest req) {
 		String name = req.getParameter("name");
 		String reviewer = req.getParameter("reviewer");

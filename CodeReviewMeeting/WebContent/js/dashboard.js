@@ -1,4 +1,5 @@
 $(document).ready(function() {
+	//activate toggle confirmation
 	$('[data-toggle="confirmation"]').confirmation({
 	    href: function(elem){
 	        return $(elem).attr('href');

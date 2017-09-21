@@ -67,7 +67,7 @@
 								</div>
 								<div class="col-xs-9 text-right">
 									<!-- TO DOT -->
-									<div class="huge">${counterPromo}</div>
+									<div class="huge">${promotions.size()}</div>
 									<div class="huge-label">Promotions</div>
 								</div>
 							</div>
@@ -89,7 +89,7 @@
 									<i class="fa fa-user fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="huge">${counterMember}</div>
+									<div class="huge">${members.size()}</div>
 									<div class="huge-label">Membres inscrits</div>
 								</div>
 							</div>
@@ -111,7 +111,7 @@
 									<i class="fa fa-calendar fa-5x"></i>
 								</div>
 								<div class="col-xs-9 text-right">
-									<div class="huge">${counterReview}</div>
+									<div class="huge">${reviews.size()}</div>
 									<div class="huge-label">Code reviews programmées</div>
 								</div>
 							</div>
