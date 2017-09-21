@@ -174,8 +174,7 @@
 				display_minutes(minutes);
 			}
 			display_seconds(seconds);
-			console.log(days + " days "+ " "+hours+ ":"+ minutes + ":"+ seconds);
-				
+			
 		}, 1000, days, hours, minutes, seconds);
 		
 	}
