@@ -43,31 +43,31 @@
                                     <form action="" method="post" class="">
                                         <div class="form-group">
                                             <label for="name">Nom</label>
-                                            <input type="text" class="input-lg form-control" id="name" name="name" placeholder="Nom">
+                                            <input type="text" class="input-lg form-control" id="name" name="name" placeholder="Nom" value="${review.reviewName}">
                                         </div>
                                         <div class="form-group">
                                             <label for="reviewer">Animateur</label>
-                                            <input type="text" class="input-lg form-control" id="reviewer" name="reviewer" placeholder="Critique">
+                                            <input type="text" class="input-lg form-control" id="reviewer" name="reviewer" placeholder="Critique" value="${review.reviewer}">
                                         </div>
                                         <div class="form-group">
                                             <label for="date">Date</label>
-                                            <input type="date" class="input-lg form-control" id="date" name="date" placeholder="Date de l'évènement">
+                                            <input type="date" class="input-lg form-control" id="date" name="date" placeholder="Date de l'évènement" value='${review.reviewDateTime.split(" ")[0]}'>
                                         </div>
                                         <div class="form-group">
                                             <label for="date">Heure</label>
-                                            <input type="time" class="timepicker input-lg form-control" data-time="now" id="time" name="time" placeholder="Heure de l'évènement">
+                                            <input type="time" class="timepicker input-lg form-control" data-time="now" id="time" name="time" placeholder="Heure de l'évènement" value='${review.reviewDateTime.split(" ")[1]}'>
                                         </div>
                                         <div class="form-group">
                                             <label for="promotion">Promotion</label>
                                             <select class="input-lg form-control" id="promotion" name="promotion">                                            		
                                                  <c:forEach var="promotion" items="${promotions}"> 
-                                                      <option>${promotion.name}</option>
+                                                      <option ${promotion.name == review.reviewPromotion ? 'selected' : ''}>${promotion.name}</option>
                           						</c:forEach>  
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label for="description">Description</label>
-                                            <input type="description" class="input-lg form-control" id="description" name="description" placeholder="Description de l'évènement">
+                                            <input type="description" class="input-lg form-control" id="description" name="description" placeholder="Description de l'évènement" value="${review.description}">
                                         </div>
 
                                         <div class="text-right">

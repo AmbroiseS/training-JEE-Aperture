@@ -49,11 +49,17 @@ public class AddEventServlet extends HttpServlet {
 		//check promotion availability 
 		if(promotionReviews.size() >0) {
 			req.setAttribute("error", "Impossible de créer la revue, la promotion a déjà une revue sur ce créneau.");		
+			List<Promotion> promotions = promoDAO.findAll();
+			req.setAttribute("promotions", promotions);
+			req.setAttribute("review", review);
 			req.getRequestDispatcher("/WEB-INF/add_event.jsp").forward(req, resp);	
 		}else {
 			//check reviewer availability
 			if(reviewerReviews.size() >0) {
 				req.setAttribute("error", "Impossible de créer la revue, l'animateur a déjà une revue sur ce créneau.");		
+				List<Promotion> promotions = promoDAO.findAll();
+				req.setAttribute("promotions", promotions);
+				req.setAttribute("review", review);
 				req.getRequestDispatcher("/WEB-INF/add_event.jsp").forward(req, resp);				
 			}else {
 			//get emails adress and send emails to all member of the promotion
@@ -68,7 +74,7 @@ public class AddEventServlet extends HttpServlet {
 	private Review parseReview(HttpServletRequest req) {
 		String name = req.getParameter("name");
 		String reviewer = req.getParameter("reviewer");
-		String date = (String) req.getParameter("date") + " " + req.getParameter("time") + ":00";
+		String date = (String) req.getParameter("date") + " " + req.getParameter("time");
 		String promotion = req.getParameter("promotion");
 		String description = req.getParameter("description");		
 		return new Review(name, date, promotion, description, reviewer);

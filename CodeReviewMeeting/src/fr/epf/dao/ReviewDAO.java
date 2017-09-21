@@ -55,7 +55,7 @@ public class ReviewDAO {
 	
 	public String[] createSlot(String date, int duration) {
 		String[] slot = new String[2];
-		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		DateFormat dateFormat= new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		Date reviewDate = null;
 		try {
 			reviewDate = dateFormat.parse(date);
