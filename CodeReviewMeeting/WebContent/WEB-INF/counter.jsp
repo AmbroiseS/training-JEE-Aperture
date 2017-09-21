@@ -106,11 +106,9 @@
 	
 
 	<!--  CALENDAR -->
-	<script src='/CodeReviewMeeting/lib/pluginCalendar/lib/jquery.min.js'></script>
     <script src='/CodeReviewMeeting/lib/pluginCalendar/lib/moment.min.js'></script>
 	<script src='/CodeReviewMeeting/lib/pluginCalendar/fullcalendar.js'></script>
 	<script src='/CodeReviewMeeting/lib/pluginCalendar/fr.js'></script>
-	<!--  OTHERS -->
 	<script src="/CodeReviewMeeting/js/countdown.js"></script>
 	<script> 
 	$( document ).ready(function() {
