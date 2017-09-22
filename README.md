@@ -28,5 +28,25 @@ Be sure to include your Oracle JDK, EAR librairies and your server runtime envir
 
 You can now access http://localhost:8080/CodeReviewMeeting/dashboard (this URL may vary depending on your configuration)
 
+To make the email feature work you have to configure the emailbean SMTP host with your own hostname. If your SMTP require security you will have to add in the EmailSessionBeanClass the following lines after line 43.:
+
+Authenticator authenticator = null;
+if (auth) {
+    props.put("mail.smtp.auth", true);
+    authenticator = new Authenticator() {
+        private PasswordAuthentication pa = new PasswordAuthentication(yourUsername, yourPassword);
+        @Override
+        public PasswordAuthentication getPasswordAuthentication() {
+            return pa;
+        }
+    };
+}
+
+...and replace the "null" with your authentificator line 51
+
+Session session = Session.getInstance(props, authenticator);
+session.setDebug(debug);
+
+
 ## Disclaimer 
 Tested on Chromium and Chrome v60.
