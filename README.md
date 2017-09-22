@@ -5,7 +5,7 @@
 ##### Admin panel features
 * Scheduling of Code Reviews
 * User management
-* Mail notification
+* Automatic mail notification
 * Sleek display countdown to next Code Review
 
 ##### Technical features
@@ -29,6 +29,7 @@ Be sure to include your Oracle JDK, EAR librairies and your server runtime envir
 
 You can now access http://localhost:8080/CodeReviewMeeting/dashboard (this URL may vary depending on your configuration)
 
+##Configuration
 To make the email feature work you have to configure the emailbean SMTP host with your own hostname. If your SMTP require security you will have to add in the EmailSessionBeanClass the following lines after line 43.:
 
 Authenticator authenticator = null;
